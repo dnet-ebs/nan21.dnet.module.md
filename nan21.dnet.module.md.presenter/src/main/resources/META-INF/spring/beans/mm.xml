@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- ==================== Product ==================== -->
+		
+	<bean id="Product_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.presenter.ext.mm.service.Product_DsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.mm.model.Product_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.mm.Product"/>
+	</bean>
+	
+	<!-- ==================== ProductLov ==================== -->
+		
+	<bean id="ProductLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.mm.model.ProductLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.mm.Product"/>
+		<property name="paramClass" value="net.nan21.dnet.module.md.presenter.impl.mm.model.ProductLov_DsParam"/>
+		<property name="queryBuilderClass" value="net.nan21.dnet.module.md.presenter.impl.mm.qb.ProductLov_DsQb" />
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== ProductStorableLov ==================== -->
+		
+	<bean id="ProductStorableLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.mm.model.ProductStorableLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.mm.Product"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== ProductCategory ==================== -->
+		
+	<bean id="ProductCategory_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.presenter.ext.mm.service.ProductCategory_DsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.mm.model.ProductCategory_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.mm.ProductCategory"/>
+	</bean>
+	
+	<!-- ==================== ProductCategoryLov ==================== -->
+		
+	<bean id="ProductCategoryLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.mm.model.ProductCategoryLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.mm.ProductCategory"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== ProductManufacturer ==================== -->
+		
+	<bean id="ProductManufacturer_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.presenter.ext.mm.service.ProductManufacturer_DsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.mm.model.ProductManufacturer_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.mm.ProductManufacturer"/>
+	</bean>
+	
+	<!-- ==================== ProductManufacturerLov ==================== -->
+		
+	<bean id="ProductManufacturerLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.mm.model.ProductManufacturerLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.mm.ProductManufacturer"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== ProductAccountType ==================== -->
+		
+	<bean id="ProductAccountType_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.mm.model.ProductAccountType_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.mm.ProductAccountType"/>
+	</bean>
+	
+	<!-- ==================== ProductAccountTypeLov ==================== -->
+		
+	<bean id="ProductAccountTypeLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.mm.model.ProductAccountTypeLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.mm.ProductAccountType"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== ProductAccount ==================== -->
+		
+	<bean id="ProductAccount_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.mm.model.ProductAccount_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.mm.ProductAccount"/>
+	</bean>
+	
+	<!-- ==================== ProductAccountLov ==================== -->
+		
+	<bean id="ProductAccountLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.mm.model.ProductAccountLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.mm.ProductAccount"/>
+		<property name="readOnly" value="true" />
+	</bean>
+</beans>

@@ -1,0 +1,7 @@
+[
+	"nan21.dnet.module.md.ui.extjs/ds/Product_Ds", 
+	"nan21.dnet.module.md.ui.extjs/lov/ProductManufacturers_Lov", 
+	"nan21.dnet.module.bd.ui.extjs/lov/AttributeSets_Lov", 
+	"nan21.dnet.module.bd.ui.extjs/lov/Uoms_Lov", 
+	"nan21.dnet.module.bd.ui.extjs/lov/UomsMass_Lov"
+]

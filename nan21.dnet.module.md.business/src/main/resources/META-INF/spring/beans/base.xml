@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="Bank" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.business.impl.base.Bank_Service"/>				
+
+	<bean id="BankBranch" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.business.impl.base.BankBranch_Service"/>				
+
+	<bean id="BankAccount" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.business.ext.base.service.BankAccount_Service"/>				
+
+	<bean id="Calendar" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.business.impl.base.Calendar_Service"/>				
+
+	<bean id="FiscalYear" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.business.ext.base.service.FiscalYear_Service"/>				
+
+	<bean id="FiscalPeriod" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.business.impl.base.FiscalPeriod_Service"/>				
+
+	<bean id="DocType" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.business.impl.base.DocType_Service"/>				
+
+	<bean id="PaymentTerm" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.business.impl.base.PaymentTerm_Service"/>				
+
+	<bean id="TaxCategory" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.business.impl.base.TaxCategory_Service"/>				
+
+	<bean id="Tax" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.business.impl.base.Tax_Service"/>				
+</beans>

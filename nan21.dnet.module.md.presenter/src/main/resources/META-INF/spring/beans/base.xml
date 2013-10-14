@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- ==================== Bank ==================== -->
+		
+	<bean id="Bank_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.base.model.Bank_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.base.Bank"/>
+	</bean>
+	
+	<!-- ==================== BankLov ==================== -->
+		
+	<bean id="BankLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.base.model.BankLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.base.Bank"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== BankBranch ==================== -->
+		
+	<bean id="BankBranch_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.base.model.BankBranch_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.base.BankBranch"/>
+	</bean>
+	
+	<!-- ==================== BankBranchLov ==================== -->
+		
+	<bean id="BankBranchLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.base.model.BankBranchLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.base.BankBranch"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== BankAccount ==================== -->
+		
+	<bean id="BankAccount_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.base.model.BankAccount_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.base.BankAccount"/>
+	</bean>
+	
+	<!-- ==================== BankAccountLov ==================== -->
+		
+	<bean id="BankAccountLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.base.model.BankAccountLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.base.BankAccount"/>
+	</bean>
+	
+	<!-- ==================== Calendar ==================== -->
+		
+	<bean id="Calendar_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.base.model.Calendar_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.base.Calendar"/>
+	</bean>
+	
+	<!-- ==================== CalendarLov ==================== -->
+		
+	<bean id="CalendarLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.base.model.CalendarLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.base.Calendar"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== FiscalYear ==================== -->
+		
+	<bean id="FiscalYear_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.base.model.FiscalYear_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.base.FiscalYear"/>
+		<property name="rpcData" >
+			<map>
+				<entry key="createMonths">
+					<bean class="net.nan21.dnet.core.presenter.descriptor.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.md.presenter.ext.base.delegate.FiscalPeriod_Pd"/>
+						<constructor-arg name="methodName" value="createMonths" />
+					</bean>
+				</entry>
+				<entry key="createQuarters">
+					<bean class="net.nan21.dnet.core.presenter.descriptor.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.md.presenter.ext.base.delegate.FiscalPeriod_Pd"/>
+						<constructor-arg name="methodName" value="createQuarters" />
+					</bean>
+				</entry>
+				<entry key="createHalfYears">
+					<bean class="net.nan21.dnet.core.presenter.descriptor.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.md.presenter.ext.base.delegate.FiscalPeriod_Pd"/>
+						<constructor-arg name="methodName" value="createHalfYears" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<!-- ==================== FiscalYearLov ==================== -->
+		
+	<bean id="FiscalYearLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.base.model.FiscalYearLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.base.FiscalYear"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== FiscalPeriod ==================== -->
+		
+	<bean id="FiscalPeriod_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.base.model.FiscalPeriod_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.base.FiscalPeriod"/>
+	</bean>
+	
+	<!-- ==================== FiscalPeriodLov ==================== -->
+		
+	<bean id="FiscalPeriodLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.base.model.FiscalPeriodLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.base.FiscalPeriod"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== DocType ==================== -->
+		
+	<bean id="DocType_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.base.model.DocType_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.base.DocType"/>
+	</bean>
+	
+	<!-- ==================== DocTypeLov ==================== -->
+		
+	<bean id="DocTypeLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.base.model.DocTypeLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.base.DocType"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== DocTypeSOLov ==================== -->
+		
+	<bean id="DocTypeSOLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.base.model.DocTypeSOLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.base.DocType"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== DocTypeSOInvOutLov ==================== -->
+		
+	<bean id="DocTypeSOInvOutLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.base.model.DocTypeSOInvOutLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.base.DocType"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== DocTypeSILov ==================== -->
+		
+	<bean id="DocTypeSILov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.base.model.DocTypeSILov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.base.DocType"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== DocTypePOLov ==================== -->
+		
+	<bean id="DocTypePOLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.base.model.DocTypePOLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.base.DocType"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== DocTypePOInvInLov ==================== -->
+		
+	<bean id="DocTypePOInvInLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.base.model.DocTypePOInvInLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.base.DocType"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== DocTypePILov ==================== -->
+		
+	<bean id="DocTypePILov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.base.model.DocTypePILov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.base.DocType"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== DocTypeInvInOutLov ==================== -->
+		
+	<bean id="DocTypeInvInOutLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.base.model.DocTypeInvInOutLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.base.DocType"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== DocTypePayLov ==================== -->
+		
+	<bean id="DocTypePayLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.base.model.DocTypePayLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.base.DocType"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== PaymentTerm ==================== -->
+		
+	<bean id="PaymentTerm_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.base.model.PaymentTerm_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.base.PaymentTerm"/>
+	</bean>
+	
+	<!-- ==================== PaymentTermLov ==================== -->
+		
+	<bean id="PaymentTermLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.base.model.PaymentTermLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.base.PaymentTerm"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== TaxCategory ==================== -->
+		
+	<bean id="TaxCategory_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.base.model.TaxCategory_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.base.TaxCategory"/>
+	</bean>
+	
+	<!-- ==================== TaxCategoryLov ==================== -->
+		
+	<bean id="TaxCategoryLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.base.model.TaxCategoryLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.base.TaxCategory"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== Tax ==================== -->
+		
+	<bean id="Tax_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.base.model.Tax_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.base.Tax"/>
+	</bean>
+	
+	<!-- ==================== TaxLov ==================== -->
+		
+	<bean id="TaxLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.base.model.TaxLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.base.Tax"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== TaxApplicableLov ==================== -->
+		
+	<bean id="TaxApplicableLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.base.model.TaxApplicableLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.base.Tax"/>
+		<property name="readOnly" value="true" />
+	</bean>
+</beans>

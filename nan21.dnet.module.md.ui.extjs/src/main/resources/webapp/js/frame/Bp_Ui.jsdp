@@ -1,0 +1,9 @@
+[
+	"nan21.dnet.module.md.ui.extjs/dc/BusinessPartner_Dc", 
+	"nan21.dnet.module.bd.ui.extjs/dc/CommunicationMethod_Dc", 
+	"nan21.dnet.module.bd.ui.extjs/dc/Attachment_Dc", 
+	"nan21.dnet.module.md.ui.extjs/dc/BpContact_Dc", 
+	"nan21.dnet.module.md.ui.extjs/dc/BankAccount_Dc", 
+	"nan21.dnet.module.bd.ui.extjs/dc/Location_Dc", 
+	"nan21.dnet.module.bd.ui.extjs/dc/Classification_Dc"
+]

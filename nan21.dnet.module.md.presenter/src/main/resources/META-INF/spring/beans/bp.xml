@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- ==================== BusinessPartner ==================== -->
+		
+	<bean id="BusinessPartner_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.bp.model.BusinessPartner_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.bp.BusinessPartner"/>
+	</bean>
+	
+	<!-- ==================== BusinessPartnerLov ==================== -->
+		
+	<bean id="BusinessPartnerLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.bp.model.BusinessPartnerLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.bp.BusinessPartner"/>
+		<property name="paramClass" value="net.nan21.dnet.module.md.presenter.impl.bp.model.BusinessPartnerLov_DsParam"/>
+		<property name="queryBuilderClass" value="net.nan21.dnet.module.md.presenter.impl.bp.qb.BusinessPartnerLov_DsQb" />
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== LegalForm ==================== -->
+		
+	<bean id="LegalForm_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.bp.model.LegalForm_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.bp.LegalForm"/>
+	</bean>
+	
+	<!-- ==================== LegalFormLov ==================== -->
+		
+	<bean id="LegalFormLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.bp.model.LegalFormLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.bp.LegalForm"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== BpContactPosition ==================== -->
+		
+	<bean id="BpContactPosition_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.bp.model.BpContactPosition_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.bp.BpContactPosition"/>
+	</bean>
+	
+	<!-- ==================== BpContactPositionLov ==================== -->
+		
+	<bean id="BpContactPositionLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.bp.model.BpContactPositionLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.bp.BpContactPosition"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== BpContact ==================== -->
+		
+	<bean id="BpContact_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.bp.model.BpContact_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.bp.BpContact"/>
+	</bean>
+	
+	<!-- ==================== BpContactLov ==================== -->
+		
+	<bean id="BpContactLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.bp.model.BpContactLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.bp.BpContact"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== CustomerGroup ==================== -->
+		
+	<bean id="CustomerGroup_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.bp.model.CustomerGroup_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.bp.CustomerGroup"/>
+	</bean>
+	
+	<!-- ==================== CustomerGroupLov ==================== -->
+		
+	<bean id="CustomerGroupLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.bp.model.CustomerGroupLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.bp.CustomerGroup"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== VendorGroup ==================== -->
+		
+	<bean id="VendorGroup_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.bp.model.VendorGroup_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.bp.VendorGroup"/>
+	</bean>
+	
+	<!-- ==================== VendorGroupLov ==================== -->
+		
+	<bean id="VendorGroupLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.bp.model.VendorGroupLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.bp.VendorGroup"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== BpAccount ==================== -->
+		
+	<bean id="BpAccount_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.bp.model.BpAccount_Ds"/>
+		<property name="filterClass" value="net.nan21.dnet.module.md.presenter.impl.bp.model.BpAccount_DsFilter"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.bp.BpAccount"/>
+	</bean>
+	
+	<!-- ==================== CustomerAccount ==================== -->
+		
+	<bean id="CustomerAccount_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.presenter.impl.bp.service.CustomerAccount_DsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.bp.model.CustomerAccount_Ds"/>
+		<property name="filterClass" value="net.nan21.dnet.module.md.presenter.impl.bp.model.CustomerAccount_DsFilter"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.bp.BpAccount"/>
+	</bean>
+	
+	<!-- ==================== CustomerAccountLov ==================== -->
+		
+	<bean id="CustomerAccountLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.bp.model.CustomerAccountLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.bp.BpAccount"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== VendorAccount ==================== -->
+		
+	<bean id="VendorAccount_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.presenter.impl.bp.service.VendorAccount_DsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.bp.model.VendorAccount_Ds"/>
+		<property name="filterClass" value="net.nan21.dnet.module.md.presenter.impl.bp.model.VendorAccount_DsFilter"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.bp.BpAccount"/>
+	</bean>
+	
+	<!-- ==================== VendorAccountLov ==================== -->
+		
+	<bean id="VendorAccountLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.bp.model.VendorAccountLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.bp.BpAccount"/>
+		<property name="readOnly" value="true" />
+	</bean>
+</beans>

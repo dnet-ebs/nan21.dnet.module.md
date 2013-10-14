@@ -1,0 +1,5 @@
+[
+	"nan21.dnet.module.md.ui.extjs/ds/LegalForm_Ds", 
+	"nan21.dnet.module.md.ui.extjs/lov/LegalForms_Lov", 
+	"nan21.dnet.module.bd.ui.extjs/lov/Countries_Lov"
+]

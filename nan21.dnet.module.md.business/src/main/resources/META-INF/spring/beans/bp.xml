@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="BusinessPartner" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.business.ext.bp.service.BusinessPartner_Service"/>				
+
+	<bean id="LegalForm" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.business.impl.bp.LegalForm_Service"/>				
+
+	<bean id="BpContactPosition" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.business.impl.bp.BpContactPosition_Service"/>				
+
+	<bean id="BpContact" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.business.ext.bp.service.BpContact_Service"/>				
+
+	<bean id="BpAccount" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.business.impl.bp.BpAccount_Service"/>				
+
+	<bean id="CustomerGroup" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.business.impl.bp.CustomerGroup_Service"/>				
+
+	<bean id="VendorGroup" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.business.impl.bp.VendorGroup_Service"/>				
+</beans>

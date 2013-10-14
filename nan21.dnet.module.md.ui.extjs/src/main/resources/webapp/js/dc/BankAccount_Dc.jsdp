@@ -1,0 +1,6 @@
+[
+	"nan21.dnet.module.md.ui.extjs/ds/BankAccount_Ds", 
+	"nan21.dnet.module.md.ui.extjs/lov/Banks_Lov", 
+	"nan21.dnet.module.md.ui.extjs/lov/BankBranches_Lov", 
+	"nan21.dnet.module.bd.ui.extjs/lov/Currencies_Lov"
+]

@@ -1,0 +1,8 @@
+[
+	"nan21.dnet.module.md.ui.extjs/ds/CustomerAccount_Ds", 
+	"nan21.dnet.module.md.ui.extjs/lov/OrgsLegalEntity_Lov", 
+	"nan21.dnet.module.md.ui.extjs/lov/BusinessPartners_Lov", 
+	"nan21.dnet.module.md.ui.extjs/lov/CustomerGroups_Lov", 
+	"nan21.dnet.module.md.ui.extjs/lov/DocTypes_Lov", 
+	"nan21.dnet.module.md.ui.extjs/lov/PaymentTerms_Lov"
+]

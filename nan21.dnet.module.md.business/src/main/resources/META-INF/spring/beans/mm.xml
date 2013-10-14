@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="ProductCategory" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.business.impl.mm.ProductCategory_Service"/>				
+
+	<bean id="Product" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.business.impl.mm.Product_Service"/>				
+
+	<bean id="ProductManufacturer" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.business.impl.mm.ProductManufacturer_Service"/>				
+
+	<bean id="ProductSubstitute" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.business.impl.mm.ProductSubstitute_Service"/>				
+
+	<bean id="ProductAccountType" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.business.impl.mm.ProductAccountType_Service"/>				
+
+	<bean id="ProductAccount" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.business.impl.mm.ProductAccount_Service"/>				
+</beans>

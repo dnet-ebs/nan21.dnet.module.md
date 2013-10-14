@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- ==================== OrgType ==================== -->
+		
+	<bean id="OrgType_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.org.model.OrgType_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.org.OrgType"/>
+	</bean>
+	
+	<!-- ==================== OrgTypeLov ==================== -->
+		
+	<bean id="OrgTypeLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.org.model.OrgTypeLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.org.OrgType"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== Org ==================== -->
+		
+	<bean id="Org_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.org.model.Org_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.org.Org"/>
+	</bean>
+	
+	<!-- ==================== OrgLov ==================== -->
+		
+	<bean id="OrgLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.org.model.OrgLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.org.Org"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== OrgLegalEntityLov ==================== -->
+		
+	<bean id="OrgLegalEntityLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.org.model.OrgLegalEntityLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.org.Org"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== OrgInventoryLov ==================== -->
+		
+	<bean id="OrgInventoryLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.org.model.OrgInventoryLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.org.Org"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== OrgWarehouseLov ==================== -->
+		
+	<bean id="OrgWarehouseLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.org.model.OrgWarehouseLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.org.Org"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== OrgCarrierLov ==================== -->
+		
+	<bean id="OrgCarrierLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.org.model.OrgCarrierLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.org.Org"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== OrgExternalLov ==================== -->
+		
+	<bean id="OrgExternalLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.org.model.OrgExternalLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.org.Org"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== DocSequence ==================== -->
+		
+	<bean id="DocSequence_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.org.model.DocSequence_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.org.DocSequence"/>
+		<property name="rpcData" >
+			<map>
+				<entry key="createValues">
+					<bean class="net.nan21.dnet.core.presenter.descriptor.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.md.presenter.ext.org.delegate.DocSequence_Pd"/>
+						<constructor-arg name="methodName" value="createValues" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<!-- ==================== DocSequenceLov ==================== -->
+		
+	<bean id="DocSequenceLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.org.model.DocSequenceLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.org.DocSequence"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== DocSequenceValue ==================== -->
+		
+	<bean id="DocSequenceValue_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.org.model.DocSequenceValue_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.org.DocSequenceValue"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== Inventory ==================== -->
+		
+	<bean id="Inventory_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.org.model.Inventory_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.org.Inventory"/>
+	</bean>
+	
+	<!-- ==================== InventoryLov ==================== -->
+		
+	<bean id="InventoryLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.org.model.InventoryLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.org.Inventory"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== InventoryLocationType ==================== -->
+		
+	<bean id="InventoryLocationType_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.org.model.InventoryLocationType_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.org.InventoryLocationType"/>
+	</bean>
+	
+	<!-- ==================== InventoryLocationTypeLov ==================== -->
+		
+	<bean id="InventoryLocationTypeLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.org.model.InventoryLocationTypeLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.org.InventoryLocationType"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== InventoryLocation ==================== -->
+		
+	<bean id="InventoryLocation_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.org.model.InventoryLocation_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.org.InventoryLocation"/>
+	</bean>
+	
+	<!-- ==================== InventoryLocationLov ==================== -->
+		
+	<bean id="InventoryLocationLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.org.model.InventoryLocationLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.org.InventoryLocation"/>
+		<property name="readOnly" value="true" />
+	</bean>
+</beans>
