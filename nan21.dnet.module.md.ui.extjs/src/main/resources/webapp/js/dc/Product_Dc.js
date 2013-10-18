@@ -5,6 +5,7 @@
  */
 Ext.define(Dnet.ns.md + "Product_Dc" , {
 	extend: "dnet.core.dc.AbstractDc",
+	paramModel: Dnet.ns.md + "Product_DsParam",
 	recordModel: Dnet.ns.md + "Product_Ds"
 });
 
@@ -22,25 +23,37 @@ Ext.define(Dnet.ns.md + "Product_Dc$Filter" , {
 		
 		/* =========== controls =========== */
 		.addTextField({ name:"name", dataIndex:"name"})
-		.addLov({xtype:"md_Products_Lov", name:"code", dataIndex:"code", caseRestriction:"uppercase",
+		.addLov({name:"code", dataIndex:"code", xtype:"md_Products_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "id"} ]})
 		.addBooleanField({ name:"storable", dataIndex:"storable"})
 		.addBooleanField({ name:"active", dataIndex:"active"})
-		.addLov({xtype:"md_ProductManufacturers_Lov", name:"manufacturer", dataIndex:"manufacturer", caseRestriction:"uppercase",
+		.addLov({name:"manufacturer", dataIndex:"manufacturer", xtype:"md_ProductManufacturers_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "manufacturerId"} ]})
 		.addTextField({ name:"manufacturerProductNo", dataIndex:"manufacturerProductNo"})
-		.addLov({xtype:"bd_AttributeSets_Lov", name:"attributeSet", dataIndex:"attributeSet", caseRestriction:"uppercase",
+		.addLov({name:"attributeSet", dataIndex:"attributeSet", xtype:"bd_AttributeSets_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "attributeSetId"} ]})
-		.addLov({xtype:"md_ProductCategories_Lov", name:"category", dataIndex:"category", caseRestriction:"uppercase",
+		.addLov({name:"category", dataIndex:"category", xtype:"md_ProductCategories_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "categoryId"} ]})
+		.addLov({name:"attr1", paramIndex:"attr1", width:250, xtype:"bd_Attributes_Lov", caseRestriction:"uppercase",
+			retFieldMapping: [{lovField:"id", dsParam: "attr1id"} ]})
+		.addTextField({ name:"attr1val", paramIndex:"attr1val", noLabel: true})
+		.addLov({name:"attr2", paramIndex:"attr2", width:250, xtype:"bd_Attributes_Lov", caseRestriction:"uppercase",
+			retFieldMapping: [{lovField:"id", dsParam: "attr2id"} ]})
+		.addTextField({ name:"attr2val", paramIndex:"attr2val", noLabel: true})
+		.addLov({name:"attr3", paramIndex:"attr3", width:250, xtype:"bd_Attributes_Lov", caseRestriction:"uppercase",
+			retFieldMapping: [{lovField:"id", dsParam: "attr3id"} ]})
+		.addTextField({ name:"attr3val", paramIndex:"attr3val", noLabel: true})
+		.add({name:"attr1cf", xtype: "fieldcontainer", layout: "hbox", items: [this._getConfig_("attr1"),this._getConfig_("attr1val")]})
+		.add({name:"attr2cf", xtype: "fieldcontainer", layout: "hbox", items: [this._getConfig_("attr2"),this._getConfig_("attr2val")]})
+		.add({name:"attr3cf", xtype: "fieldcontainer", layout: "hbox", items: [this._getConfig_("attr3"),this._getConfig_("attr3val")]})
 		
 		/* =========== containers =========== */
 		.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 		autoScroll:true, padding:"0 30 5 0"})
 		.addPanel({ name:"col1", width:250, layout:"form"})
-		.addPanel({ name:"col2", width:140, layout:"form", defaults:{labelAlign:"right", labelWidth:70}})
-		.addPanel({ name:"col4", width:250, layout:"form"})
-		.addPanel({ name:"col5", width:210, layout:"form"});
+		.addPanel({ name:"col2", width:250, layout:"form", defaults:{labelAlign:"right", labelWidth:120}})
+		.addPanel({ name:"col3", width:350, layout:"form"})
+		.addPanel({ name:"col4", width:140, layout:"form", defaults:{labelAlign:"right", labelWidth:70}});
 	},
 
 	/**
@@ -48,11 +61,11 @@ Ext.define(Dnet.ns.md + "Product_Dc$Filter" , {
 	 */				
 	_linkElements_: function() {
 		this._getBuilder_()
-		.addChildrenTo("main", ["col1", "col2", "col4", "col5"])
-		.addChildrenTo("col1", ["code", "name"])
-		.addChildrenTo("col2", ["storable", "active"])
-		.addChildrenTo("col4", ["attributeSet", "category"])
-		.addChildrenTo("col5", ["manufacturer", "manufacturerProductNo"]);
+		.addChildrenTo("main", ["col1", "col2", "col3", "col4"])
+		.addChildrenTo("col1", ["code", "name", "category"])
+		.addChildrenTo("col2", ["manufacturer", "manufacturerProductNo", "attributeSet"])
+		.addChildrenTo("col3", ["attr1cf", "attr2cf", "attr3cf"])
+		.addChildrenTo("col4", ["storable", "active"]);
 	}
 });
 
@@ -160,15 +173,17 @@ Ext.define(Dnet.ns.md + "Product_Dc$Edit" , {
 		.addTextField({ name:"name", dataIndex:"name", allowBlank:false})
 		.addTextField({ name:"code", dataIndex:"code", caseRestriction:"uppercase"})
 		.addBooleanField({ name:"active", dataIndex:"active"})
-		.addLov({xtype:"bd_AttributeSets_Lov", name:"attributeSet", dataIndex:"attributeSet", caseRestriction:"uppercase",
-			retFieldMapping: [{lovField:"id", dsField: "attributeSetId"} ]})
-		.addLov({xtype:"md_ProductCategories_Lov", name:"category", dataIndex:"category", caseRestriction:"uppercase",
-			retFieldMapping: [{lovField:"id", dsField: "categoryId"} ,{lovField:"name", dsField: "categoryName"} ]})
+		.addLov({name:"attributeSet", dataIndex:"attributeSet", xtype:"bd_AttributeSets_Lov", caseRestriction:"uppercase",
+			retFieldMapping: [{lovField:"id", dsField: "attributeSetId"} ],
+			filterFieldMapping: [{lovField:"active", value: "true"} ]})
+		.addLov({name:"category", dataIndex:"category", xtype:"md_ProductCategories_Lov", caseRestriction:"uppercase",
+			retFieldMapping: [{lovField:"id", dsField: "categoryId"} ,{lovField:"name", dsField: "categoryName"} ],
+			filterFieldMapping: [{lovField:"active", value: "true"}, {lovField:"folder", value: "true"} ]})
 		.addTextField({ name:"categoryName", dataIndex:"categoryName", noEdit:true })
-		.addLov({xtype:"bd_Uoms_Lov", name:"uom", dataIndex:"uom", allowBlank:false, caseRestriction:"uppercase",
+		.addLov({name:"uom", dataIndex:"uom", allowBlank:false, xtype:"bd_Uoms_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "uomId"} ]})
 		.addTextField({ name:"manufacturerProductNo", dataIndex:"manufacturerProductNo"})
-		.addLov({xtype:"md_ProductManufacturers_Lov", name:"manufacturer", dataIndex:"manufacturer", caseRestriction:"uppercase",
+		.addLov({name:"manufacturer", dataIndex:"manufacturer", xtype:"md_ProductManufacturers_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "manufacturerId"} ]})
 		.addImage({ name:"iconLocation", dataIndex:"iconLocation", height:120})
 		
@@ -221,11 +236,11 @@ Ext.define(Dnet.ns.md + "Product_Dc$EditInfo" , {
 		.addNumberField({name:"dimWidth", dataIndex:"dimWidth", decimals:2})
 		.addNumberField({name:"dimHeight", dataIndex:"dimHeight", decimals:2})
 		.addNumberField({name:"dimDepth", dataIndex:"dimDepth", decimals:2})
-		.addLov({xtype:"bd_UomsVolume_Lov", name:"volumeUom", dataIndex:"volumeUom", caseRestriction:"uppercase",
+		.addLov({name:"volumeUom", dataIndex:"volumeUom", xtype:"bd_UomsVolume_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "volumeUomId"} ]})
-		.addLov({xtype:"bd_UomsMass_Lov", name:"weightUom", dataIndex:"weightUom", caseRestriction:"uppercase",
+		.addLov({name:"weightUom", dataIndex:"weightUom", xtype:"bd_UomsMass_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "weightUomId"} ]})
-		.addLov({xtype:"bd_UomsLength_Lov", name:"dimUom", dataIndex:"dimUom", caseRestriction:"uppercase",
+		.addLov({name:"dimUom", dataIndex:"dimUom", xtype:"bd_UomsLength_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "dimUomId"} ]})
 		
 		/* =========== containers =========== */

@@ -39,7 +39,7 @@ Ext.define(Dnet.ns.md + "Product_Ui" , {
 		.addDcEditGridView("classific", {name:"classificEdit", _hasTitle_:true, xtype:"bd_Classification_Dc$EditList", frame:true})
 		.addDcGridView("atch", {name:"atchList", _hasTitle_:true, xtype:"bd_Attachment_Dc$List"})
 		.addDcFormView("atch", {name:"atchCreate", xtype:"bd_Attachment_Dc$Create"})
-		.addDcFilterFormView("attr", {name:"attrFilter", _hasTitle_:true, width:250, xtype:"bd_AttributeValue_Dc$CtxFilter", collapsible:true
+		.addDcFilterFormView("attr", {name:"attrFilter", _hasTitle_:true, width:250, xtype:"bd_AttributeValue_Dc$CtxFilter", collapsible:true, collapsed:true
 		})
 		.addDcEditGridView("attr", {name:"attrEditList", xtype:"bd_AttributeValue_Dc$CtxEditList", frame:true})
 		.addPanel({name:"attrPanel", _hasTitle_:true, layout:"border", defaults:{split:true}})

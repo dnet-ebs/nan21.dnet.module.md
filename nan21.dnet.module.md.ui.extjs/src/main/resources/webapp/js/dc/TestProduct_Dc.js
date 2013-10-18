@@ -5,6 +5,7 @@
  */
 Ext.define(Dnet.ns.md + "TestProduct_Dc" , {
 	extend: "dnet.core.dc.AbstractDc",
+	paramModel: Dnet.ns.md + "Product_DsParam",
 	recordModel: Dnet.ns.md + "Product_Ds"
 });
 
@@ -25,7 +26,7 @@ Ext.define(Dnet.ns.md + "TestProduct_Dc$Filter" , {
 		.addTextField({ name:"code", dataIndex:"code", caseRestriction:"uppercase"})
 		.addBooleanField({ name:"storable", dataIndex:"storable"})
 		.addBooleanField({ name:"active", dataIndex:"active"})
-		.addLov({xtype:"md_ProductManufacturers_Lov", name:"manufacturer", dataIndex:"manufacturer", caseRestriction:"uppercase",
+		.addLov({name:"manufacturer", dataIndex:"manufacturer", xtype:"md_ProductManufacturers_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "manufacturerId"} ]})
 		
 		/* =========== containers =========== */
@@ -153,15 +154,15 @@ Ext.define(Dnet.ns.md + "TestProduct_Dc$Edit" , {
 		.addTextField({ name:"code", dataIndex:"code", caseRestriction:"uppercase"})
 		.addBooleanField({ name:"active", dataIndex:"active"})
 		.addTextField({ name:"manufacturerProductNo", dataIndex:"manufacturerProductNo"})
-		.addLov({xtype:"md_ProductManufacturers_Lov", name:"manufacturer", dataIndex:"manufacturer", caseRestriction:"uppercase",
+		.addLov({name:"manufacturer", dataIndex:"manufacturer", xtype:"md_ProductManufacturers_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "manufacturerId"} ]})
-		.addLov({xtype:"bd_AttributeSets_Lov", name:"attributeSet", dataIndex:"attributeSet", caseRestriction:"uppercase",
+		.addLov({name:"attributeSet", dataIndex:"attributeSet", xtype:"bd_AttributeSets_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "attributeSetId"} ]})
-		.addLov({xtype:"bd_Uoms_Lov", name:"uom", dataIndex:"uom", allowBlank:false, caseRestriction:"uppercase",
+		.addLov({name:"uom", dataIndex:"uom", allowBlank:false, xtype:"bd_Uoms_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "uomId"} ]})
 		.addBooleanField({ name:"storable", dataIndex:"storable"})
 		.addNumberField({name:"weight", dataIndex:"weight", decimals:2})
-		.addLov({xtype:"bd_UomsMass_Lov", name:"weightUom", dataIndex:"weightUom", caseRestriction:"uppercase",
+		.addLov({name:"weightUom", dataIndex:"weightUom", xtype:"bd_UomsMass_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "weightUomId"} ]})
 		.addTextField({ name:"iconUrl", dataIndex:"iconUrl"})
 		.addTextField({ name:"imageUrl", dataIndex:"imageUrl"})

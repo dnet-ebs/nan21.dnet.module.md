@@ -21,7 +21,7 @@ Ext.define(Dnet.ns.md + "BpContactPosition_Dc$Filter" , {
 		this._getBuilder_()
 		
 		/* =========== controls =========== */
-		.addLov({xtype:"md_BpContactPositions_Lov", name:"name", dataIndex:"name",
+		.addLov({name:"name", dataIndex:"name", xtype:"md_BpContactPositions_Lov",
 			retFieldMapping: [{lovField:"id", dsField: "id"} ]})
 		.addBooleanField({ name:"active", dataIndex:"active"})
 		

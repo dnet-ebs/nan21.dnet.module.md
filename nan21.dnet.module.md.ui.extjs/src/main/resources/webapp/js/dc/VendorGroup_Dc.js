@@ -22,12 +22,12 @@ Ext.define(Dnet.ns.md + "VendorGroup_Dc$Filter" , {
 		
 		/* =========== controls =========== */
 		.addTextField({ name:"name", dataIndex:"name"})
-		.addLov({xtype:"md_VendorGroups_Lov", name:"code", dataIndex:"code", caseRestriction:"uppercase",
+		.addLov({name:"code", dataIndex:"code", xtype:"md_VendorGroups_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "id"} ]})
-		.addLov({xtype:"md_DocTypes_Lov", name:"paymentMethod", dataIndex:"paymentMethod", caseRestriction:"uppercase",
+		.addLov({name:"paymentMethod", dataIndex:"paymentMethod", xtype:"md_DocTypes_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "paymentMethodId"} ],
 			filterFieldMapping: [{lovField:"category", value: "payment-in"} ]})
-		.addLov({xtype:"md_PaymentTerms_Lov", name:"paymentTerm", dataIndex:"paymentTerm",
+		.addLov({name:"paymentTerm", dataIndex:"paymentTerm", xtype:"md_PaymentTerms_Lov",
 			retFieldMapping: [{lovField:"id", dsField: "paymentTermId"} ]})
 		.addBooleanField({ name:"active", dataIndex:"active"})
 		

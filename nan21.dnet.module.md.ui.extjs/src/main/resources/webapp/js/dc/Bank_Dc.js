@@ -22,7 +22,7 @@ Ext.define(Dnet.ns.md + "Bank_Dc$Filter" , {
 		
 		/* =========== controls =========== */
 		.addTextField({ name:"name", dataIndex:"name"})
-		.addLov({xtype:"md_Banks_Lov", name:"code", dataIndex:"code", caseRestriction:"uppercase",
+		.addLov({name:"code", dataIndex:"code", xtype:"md_Banks_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "id"} ]})
 		.addTextField({ name:"swiftCode", dataIndex:"swiftCode", maxLength:32})
 		.addBooleanField({ name:"active", dataIndex:"active"})

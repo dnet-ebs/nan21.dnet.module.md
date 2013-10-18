@@ -22,9 +22,9 @@ Ext.define(Dnet.ns.md + "BankBranch_Dc$Filter" , {
 		
 		/* =========== controls =========== */
 		.addTextField({ name:"name", dataIndex:"name"})
-		.addLov({xtype:"md_BankBranches_Lov", name:"code", dataIndex:"code", caseRestriction:"uppercase",
+		.addLov({name:"code", dataIndex:"code", xtype:"md_BankBranches_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "id"} ]})
-		.addLov({xtype:"md_Banks_Lov", name:"bank", dataIndex:"bank", caseRestriction:"uppercase",
+		.addLov({name:"bank", dataIndex:"bank", xtype:"md_Banks_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "bankId"} ]})
 		.addBooleanField({ name:"active", dataIndex:"active"})
 		

@@ -1,3 +1,5 @@
 [
-	"nan21.dnet.module.md.ui.extjs/dc/ProductCategory_Dc"
+	"nan21.dnet.module.bd.ui.extjs/dc/AttributeValue_Dc", 
+	"nan21.dnet.module.md.ui.extjs/dc/ProductCategory_Dc", 
+	"nan21.dnet.module.bd.ui.extjs/dc/Classification_Dc"
 ]

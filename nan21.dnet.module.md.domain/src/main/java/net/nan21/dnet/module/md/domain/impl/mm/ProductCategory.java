@@ -18,6 +18,7 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import net.nan21.dnet.core.domain.impl.AbstractTypeWithCode;
+import net.nan21.dnet.module.bd.domain.impl.attr.AttributeSet;
 import net.nan21.dnet.module.md.domain.impl.mm.ProductCategory;
 import org.eclipse.persistence.config.HintValues;
 import org.eclipse.persistence.config.QueryHints;
@@ -61,6 +62,10 @@ public class ProductCategory extends AbstractTypeWithCode {
 	@JoinColumn(name = "CATEGORY_ID", referencedColumnName = "ID")
 	private ProductCategory category;
 
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = AttributeSet.class)
+	@JoinColumn(name = "ATTRIBUTESET_ID", referencedColumnName = "ID")
+	private AttributeSet attributeSet;
+
 	public Boolean getFolder() {
 		return this.folder;
 	}
@@ -86,6 +91,17 @@ public class ProductCategory extends AbstractTypeWithCode {
 			this.__validate_client_context__(category.getClientId());
 		}
 		this.category = category;
+	}
+
+	public AttributeSet getAttributeSet() {
+		return this.attributeSet;
+	}
+
+	public void setAttributeSet(AttributeSet attributeSet) {
+		if (attributeSet != null) {
+			this.__validate_client_context__(attributeSet.getClientId());
+		}
+		this.attributeSet = attributeSet;
 	}
 
 	@PrePersist

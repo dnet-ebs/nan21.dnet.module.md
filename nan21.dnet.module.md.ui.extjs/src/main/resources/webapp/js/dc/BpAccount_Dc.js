@@ -22,18 +22,18 @@ Ext.define(Dnet.ns.md + "BpAccount_Dc$Filter" , {
 		this._getBuilder_()
 		
 		/* =========== controls =========== */
-		.addLov({xtype:"md_OrgsLegalEntity_Lov", name:"company", dataIndex:"company", allowBlank:false, caseRestriction:"uppercase",
+		.addLov({name:"company", dataIndex:"company", allowBlank:false, xtype:"md_OrgsLegalEntity_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "companyId"} ]})
-		.addLov({xtype:"md_BusinessPartners_Lov", name:"bpartner", dataIndex:"bpartner", caseRestriction:"uppercase",
+		.addLov({name:"bpartner", dataIndex:"bpartner", xtype:"md_BusinessPartners_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "bpartnerId"} ]})
-		.addLov({xtype:"md_CustomerGroups_Lov", name:"customerGroup", dataIndex:"customerGroup", caseRestriction:"uppercase",
+		.addLov({name:"customerGroup", dataIndex:"customerGroup", xtype:"md_CustomerGroups_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "customerGroupId"} ]})
-		.addLov({xtype:"md_VendorGroups_Lov", name:"vendorGroup", dataIndex:"vendorGroup", caseRestriction:"uppercase",
+		.addLov({name:"vendorGroup", dataIndex:"vendorGroup", xtype:"md_VendorGroups_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "vendorGroupId"} ]})
-		.addLov({xtype:"md_DocTypes_Lov", name:"customerPaymentMethod", dataIndex:"customerPaymentMethod", caseRestriction:"uppercase",
+		.addLov({name:"customerPaymentMethod", dataIndex:"customerPaymentMethod", xtype:"md_DocTypes_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "customerPaymentMethodId"} ],
 			filterFieldMapping: [{lovField:"category", value: "payment-in"} ]})
-		.addLov({xtype:"md_DocTypes_Lov", name:"vendorPaymentMethod", dataIndex:"vendorPaymentMethod", caseRestriction:"uppercase",
+		.addLov({name:"vendorPaymentMethod", dataIndex:"vendorPaymentMethod", xtype:"md_DocTypes_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "vendorPaymentMethodId"} ],
 			filterFieldMapping: [{lovField:"category", value: "payment-out"} ]})
 		.addBooleanField({ name:"customer", dataIndex:"customer"})
@@ -110,9 +110,9 @@ Ext.define(Dnet.ns.md + "BpAccount_Dc$Create" , {
 		this._getBuilder_()
 		
 		/* =========== controls =========== */
-		.addLov({xtype:"md_OrgsLegalEntity_Lov", name:"company", dataIndex:"company", allowBlank:false, caseRestriction:"uppercase",
+		.addLov({name:"company", dataIndex:"company", allowBlank:false, xtype:"md_OrgsLegalEntity_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "companyId"} ]})
-		.addLov({xtype:"md_BusinessPartners_Lov", name:"bpartner", dataIndex:"bpartner", allowBlank:false, caseRestriction:"uppercase",
+		.addLov({name:"bpartner", dataIndex:"bpartner", allowBlank:false, xtype:"md_BusinessPartners_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "bpartnerId"} ,{lovField:"name", dsField: "bpartnerName"} ],
 			filterFieldMapping: [{lovParam:"companyIdForNewBpAccount", dsField: "companyId"} ]})
 		.addTextField({ name:"bpartnerName", dataIndex:"bpartnerName", noEdit:true })
@@ -150,23 +150,23 @@ Ext.define(Dnet.ns.md + "BpAccount_Dc$Edit" , {
 		.addBooleanField({ name:"customer", dataIndex:"customer",listeners:{
 			change:{scope:this, fn:this.onCustChange}
 		}})
-		.addLov({xtype:"md_CustomerGroups_Lov", name:"customerGroup", dataIndex:"customerGroup", _enableFn_:this._cust_fld_enabled_, caseRestriction:"uppercase",
+		.addLov({name:"customerGroup", dataIndex:"customerGroup", _enableFn_:this._cust_fld_enabled_, xtype:"md_CustomerGroups_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "customerGroupId"} ]})
-		.addLov({xtype:"md_DocTypes_Lov", name:"customerPaymentMethod", dataIndex:"customerPaymentMethod", _enableFn_:this._cust_fld_enabled_, caseRestriction:"uppercase",
+		.addLov({name:"customerPaymentMethod", dataIndex:"customerPaymentMethod", _enableFn_:this._cust_fld_enabled_, xtype:"md_DocTypes_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "customerPaymentMethodId"} ],
 			filterFieldMapping: [{lovField:"active", value: "true"}, {lovField:"category", value: "payment-in"} ]})
-		.addLov({xtype:"md_PaymentTerms_Lov", name:"customerPaymentTerm", dataIndex:"customerPaymentTerm", _enableFn_:this._cust_fld_enabled_,
+		.addLov({name:"customerPaymentTerm", dataIndex:"customerPaymentTerm", _enableFn_:this._cust_fld_enabled_, xtype:"md_PaymentTerms_Lov",
 			retFieldMapping: [{lovField:"id", dsField: "customerPaymentTermId"} ]})
 		.addNumberField({name:"customerCreditLimit", dataIndex:"customerCreditLimit", _enableFn_:this._cust_fld_enabled_, decimals:2})
 		.addBooleanField({ name:"vendor", dataIndex:"vendor",listeners:{
 			change:{scope:this, fn:this.onVendChange}
 		}})
-		.addLov({xtype:"md_VendorGroups_Lov", name:"vendorGroup", dataIndex:"vendorGroup", _enableFn_:this._vend_fld_enabled_, caseRestriction:"uppercase",
+		.addLov({name:"vendorGroup", dataIndex:"vendorGroup", _enableFn_:this._vend_fld_enabled_, xtype:"md_VendorGroups_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "vendorGroupId"} ]})
-		.addLov({xtype:"md_DocTypes_Lov", name:"vendorPaymentMethod", dataIndex:"vendorPaymentMethod", _enableFn_:this._vend_fld_enabled_, caseRestriction:"uppercase",
+		.addLov({name:"vendorPaymentMethod", dataIndex:"vendorPaymentMethod", _enableFn_:this._vend_fld_enabled_, xtype:"md_DocTypes_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "vendorPaymentMethodId"} ],
 			filterFieldMapping: [{lovField:"active", value: "true"}, {lovField:"category", value: "payment-out"} ]})
-		.addLov({xtype:"md_PaymentTerms_Lov", name:"vendorPaymentTerm", dataIndex:"vendorPaymentTerm", _enableFn_:this._vend_fld_enabled_,
+		.addLov({name:"vendorPaymentTerm", dataIndex:"vendorPaymentTerm", _enableFn_:this._vend_fld_enabled_, xtype:"md_PaymentTerms_Lov",
 			retFieldMapping: [{lovField:"id", dsField: "vendorPaymentTermId"} ]})
 		.addNumberField({name:"vendorCreditLimit", dataIndex:"vendorCreditLimit", _enableFn_:this._vend_fld_enabled_, decimals:2})
 		

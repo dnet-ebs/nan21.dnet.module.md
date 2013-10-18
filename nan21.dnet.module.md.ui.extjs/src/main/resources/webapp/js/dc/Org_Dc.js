@@ -21,10 +21,10 @@ Ext.define(Dnet.ns.md + "Org_Dc$Filter" , {
 		this._getBuilder_()
 		
 		/* =========== controls =========== */
-		.addLov({xtype:"md_Orgs_Lov", name:"code", dataIndex:"code", caseRestriction:"uppercase",
+		.addLov({name:"code", dataIndex:"code", xtype:"md_Orgs_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "id"} ]})
 		.addTextField({ name:"name", dataIndex:"name"})
-		.addLov({xtype:"md_OrgTypes_Lov", name:"type", dataIndex:"type", caseRestriction:"uppercase",
+		.addLov({name:"type", dataIndex:"type", xtype:"md_OrgTypes_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "typeId"} ]})
 		.addBooleanField({ name:"active", dataIndex:"active"})
 		

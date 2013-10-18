@@ -7,5 +7,6 @@
 	"nan21.dnet.module.bd.ui.extjs/lov/UomsVolume_Lov", 
 	"nan21.dnet.module.bd.ui.extjs/lov/UomsMass_Lov", 
 	"nan21.dnet.module.bd.ui.extjs/lov/UomsLength_Lov", 
-	"nan21.dnet.module.md.ui.extjs/lov/Products_Lov"
+	"nan21.dnet.module.md.ui.extjs/lov/Products_Lov", 
+	"nan21.dnet.module.bd.ui.extjs/lov/Attributes_Lov"
 ]

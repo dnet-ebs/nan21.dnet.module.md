@@ -22,7 +22,7 @@ Ext.define(Dnet.ns.md + "ProductAccountType_Dc$Filter" , {
 		
 		/* =========== controls =========== */
 		.addTextField({ name:"name", dataIndex:"name"})
-		.addLov({xtype:"md_ProductAccountTypes_Lov", name:"code", dataIndex:"code", caseRestriction:"uppercase",
+		.addLov({name:"code", dataIndex:"code", xtype:"md_ProductAccountTypes_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "id"} ]})
 		.addBooleanField({ name:"sale", dataIndex:"sale"})
 		.addBooleanField({ name:"purchase", dataIndex:"purchase"})

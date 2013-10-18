@@ -22,9 +22,9 @@ Ext.define(Dnet.ns.md + "Tax_Dc$Filter" , {
 		
 		/* =========== controls =========== */
 		.addTextField({ name:"name", dataIndex:"name"})
-		.addLov({xtype:"md_TaxCategories_Lov", name:"category", dataIndex:"category",
+		.addLov({name:"category", dataIndex:"category", xtype:"md_TaxCategories_Lov",
 			retFieldMapping: [{lovField:"id", dsField: "categoryId"} ]})
-		.addLov({xtype:"md_Taxes_Lov", name:"parentTax", dataIndex:"parentTax",
+		.addLov({name:"parentTax", dataIndex:"parentTax", xtype:"md_Taxes_Lov",
 			retFieldMapping: [{lovField:"id", dsField: "parentTaxId"} ]})
 		.addBooleanField({ name:"summary", dataIndex:"summary"})
 		.addBooleanField({ name:"active", dataIndex:"active"})
@@ -96,9 +96,9 @@ Ext.define(Dnet.ns.md + "Tax_Dc$Edit" , {
 		.addNumberField({name:"rate", dataIndex:"rate", decimals:6})
 		.addBooleanField({ name:"summary", dataIndex:"summary"})
 		.addBooleanField({ name:"active", dataIndex:"active"})
-		.addLov({xtype:"md_TaxCategories_Lov", name:"category", dataIndex:"category",
+		.addLov({name:"category", dataIndex:"category", xtype:"md_TaxCategories_Lov",
 			retFieldMapping: [{lovField:"id", dsField: "categoryId"} ]})
-		.addLov({xtype:"md_Taxes_Lov", name:"parentTax", dataIndex:"parentTax",
+		.addLov({name:"parentTax", dataIndex:"parentTax", xtype:"md_Taxes_Lov",
 			retFieldMapping: [{lovField:"id", dsField: "parentTaxId"} ],
 			filterFieldMapping: [{lovField:"summary", value: "true"} ]})
 		

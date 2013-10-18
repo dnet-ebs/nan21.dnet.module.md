@@ -8,6 +8,7 @@ Ext.define(Dnet.ns.md + "ProductCategoryLov_Ds", {
 	extend: 'Ext.data.Model',
 	
 	fields: [
+		{name:"folder", type:"boolean"},
 		{name:"id", type:"string"},
 		{name:"clientId", type:"string"},
 		{name:"code", type:"string"},

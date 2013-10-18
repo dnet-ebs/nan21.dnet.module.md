@@ -13,6 +13,8 @@
 		class="net.nan21.dnet.module.md.presenter.ext.mm.service.Product_DsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.mm.model.Product_Ds"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.mm.Product"/>
+		<property name="paramClass" value="net.nan21.dnet.module.md.presenter.impl.mm.model.Product_DsParam"/>
+		<property name="queryBuilderClass" value="net.nan21.dnet.module.md.presenter.impl.mm.qb.Product_DsQb" />
 	</bean>
 	
 	<!-- ==================== ProductLov ==================== -->

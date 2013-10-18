@@ -21,11 +21,11 @@ Ext.define(Dnet.ns.md + "ProductAccount_Dc$Filter" , {
 		this._getBuilder_()
 		
 		/* =========== controls =========== */
-		.addLov({xtype:"md_OrgsLegalEntity_Lov", name:"company", dataIndex:"company", caseRestriction:"uppercase",
+		.addLov({name:"company", dataIndex:"company", xtype:"md_OrgsLegalEntity_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "companyId"} ]})
-		.addLov({xtype:"md_ProductAccountTypes_Lov", name:"type", dataIndex:"type", caseRestriction:"uppercase",
+		.addLov({name:"type", dataIndex:"type", xtype:"md_ProductAccountTypes_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "typeId"} ]})
-		.addLov({xtype:"md_Products_Lov", name:"product", dataIndex:"product", caseRestriction:"uppercase",
+		.addLov({name:"product", dataIndex:"product", xtype:"md_Products_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "productId"} ]})
 		.addBooleanField({ name:"sale", dataIndex:"sale"})
 		.addBooleanField({ name:"purchase", dataIndex:"purchase"})

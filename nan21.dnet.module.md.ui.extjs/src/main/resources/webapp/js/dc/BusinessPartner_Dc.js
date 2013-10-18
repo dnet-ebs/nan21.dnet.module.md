@@ -22,7 +22,7 @@ Ext.define(Dnet.ns.md + "BusinessPartner_Dc$Filter" , {
 		
 		/* =========== controls =========== */
 		.addTextField({ name:"name", dataIndex:"name"})
-		.addLov({xtype:"md_BusinessPartners_Lov", name:"code", dataIndex:"code", caseRestriction:"uppercase",
+		.addLov({name:"code", dataIndex:"code", xtype:"md_BusinessPartners_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "id"} ]})
 		.addTextField({ name:"firstName", dataIndex:"firstName"})
 		.addTextField({ name:"lastName", dataIndex:"lastName"})
@@ -32,9 +32,9 @@ Ext.define(Dnet.ns.md + "BusinessPartner_Dc$Filter" , {
 		.addBooleanField({ name:"active", dataIndex:"active"})
 		.addCombo({ xtype:"combo", name:"gender", dataIndex:"gender", store:[ "male", "female"]})
 		.addCombo({ xtype:"combo", name:"type", dataIndex:"type", store:[ "person", "company"]})
-		.addLov({xtype:"bd_Countries_Lov", name:"country", dataIndex:"country", caseRestriction:"uppercase",
+		.addLov({name:"country", dataIndex:"country", xtype:"bd_Countries_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "countryId"} ]})
-		.addLov({xtype:"md_LegalForms_Lov", name:"legalForm", dataIndex:"legalForm", caseRestriction:"uppercase",
+		.addLov({name:"legalForm", dataIndex:"legalForm", xtype:"md_LegalForms_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "legalFormId"} ]})
 		
 		/* =========== containers =========== */
@@ -132,7 +132,7 @@ Ext.define(Dnet.ns.md + "BusinessPartner_Dc$Edit" , {
 		.addTextField({ name:"code", dataIndex:"code", caseRestriction:"uppercase"})
 		.addBooleanField({ name:"active", dataIndex:"active"})
 		.addTextField({ name:"type", dataIndex:"type", noEdit:true , maxLength:16})
-		.addLov({xtype:"bd_Countries_Lov", name:"country", dataIndex:"country", allowBlank:false, caseRestriction:"uppercase",
+		.addLov({name:"country", dataIndex:"country", allowBlank:false, xtype:"bd_Countries_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "countryId"} ],
 			filterFieldMapping: [{lovField:"active", value: "true"} ]})
 		.addTextField({ name:"taxPayerNo", dataIndex:"taxPayerNo"})
@@ -146,7 +146,7 @@ Ext.define(Dnet.ns.md + "BusinessPartner_Dc$Edit" , {
 		.addTextField({ name:"companyName", dataIndex:"companyName"})
 		.addTextField({ name:"registrationNo", dataIndex:"registrationNo", maxLength:32})
 		.addDateField({name:"registrationDate", dataIndex:"registrationDate"})
-		.addLov({xtype:"md_LegalForms_Lov", name:"legalForm", dataIndex:"legalForm", caseRestriction:"uppercase",
+		.addLov({name:"legalForm", dataIndex:"legalForm", xtype:"md_LegalForms_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "legalFormId"} ],
 			filterFieldMapping: [{lovField:"countryId", dsField: "countryId"}, {lovField:"active", value: "true"} ]})
 		

@@ -9,6 +9,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
 import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
+import net.nan21.dnet.module.bd.domain.impl.attr.AttributeSet;
 import net.nan21.dnet.module.md.business.api.mm.IProductCategoryService;
 import net.nan21.dnet.module.md.domain.impl.mm.ProductCategory;
 
@@ -76,5 +77,24 @@ public class ProductCategory_Service
 				.setParameter("clientId",
 						Session.user.get().getClient().getId())
 				.setParameter("categoryId", categoryId).getResultList();
+	}
+	/**
+	 * Find by reference: attributeSet
+	 */
+	public List<ProductCategory> findByAttributeSet(AttributeSet attributeSet) {
+		return this.findByAttributeSetId(attributeSet.getId());
+	}
+	/**
+	 * Find by ID of reference: attributeSet.id
+	 */
+	public List<ProductCategory> findByAttributeSetId(String attributeSetId) {
+		return (List<ProductCategory>) this
+				.getEntityManager()
+				.createQuery(
+						"select e from ProductCategory e where e.clientId = :clientId and e.attributeSet.id = :attributeSetId",
+						ProductCategory.class)
+				.setParameter("clientId",
+						Session.user.get().getClient().getId())
+				.setParameter("attributeSetId", attributeSetId).getResultList();
 	}
 }

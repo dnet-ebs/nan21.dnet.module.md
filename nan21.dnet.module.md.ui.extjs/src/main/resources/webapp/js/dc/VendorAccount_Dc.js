@@ -22,16 +22,16 @@ Ext.define(Dnet.ns.md + "VendorAccount_Dc$Filter" , {
 		this._getBuilder_()
 		
 		/* =========== controls =========== */
-		.addLov({xtype:"md_OrgsLegalEntity_Lov", name:"company", dataIndex:"company", allowBlank:false, caseRestriction:"uppercase",
+		.addLov({name:"company", dataIndex:"company", allowBlank:false, xtype:"md_OrgsLegalEntity_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "companyId"} ]})
-		.addLov({xtype:"md_BusinessPartners_Lov", name:"bpartner", dataIndex:"bpartner", caseRestriction:"uppercase",
+		.addLov({name:"bpartner", dataIndex:"bpartner", xtype:"md_BusinessPartners_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "bpartnerId"} ]})
-		.addLov({xtype:"md_CustomerGroups_Lov", name:"group", dataIndex:"group", caseRestriction:"uppercase",
+		.addLov({name:"group", dataIndex:"group", xtype:"md_CustomerGroups_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "groupId"} ]})
-		.addLov({xtype:"md_DocTypes_Lov", name:"paymentMethod", dataIndex:"paymentMethod", caseRestriction:"uppercase",
+		.addLov({name:"paymentMethod", dataIndex:"paymentMethod", xtype:"md_DocTypes_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "paymentMethodId"} ],
 			filterFieldMapping: [{lovField:"category", value: "payment-out"} ]})
-		.addLov({xtype:"md_PaymentTerms_Lov", name:"paymentTerm", dataIndex:"paymentTerm",
+		.addLov({name:"paymentTerm", dataIndex:"paymentTerm", xtype:"md_PaymentTerms_Lov",
 			retFieldMapping: [{lovField:"id", dsField: "paymentTermId"} ]})
 		.addBooleanField({ name:"active", dataIndex:"active"})
 		
@@ -96,9 +96,9 @@ Ext.define(Dnet.ns.md + "VendorAccount_Dc$Create" , {
 		this._getBuilder_()
 		
 		/* =========== controls =========== */
-		.addLov({xtype:"md_OrgsLegalEntity_Lov", name:"company", dataIndex:"company", caseRestriction:"uppercase",
+		.addLov({name:"company", dataIndex:"company", xtype:"md_OrgsLegalEntity_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "companyId"} ]})
-		.addLov({xtype:"md_BusinessPartners_Lov", name:"bpartner", dataIndex:"bpartner", caseRestriction:"uppercase",
+		.addLov({name:"bpartner", dataIndex:"bpartner", xtype:"md_BusinessPartners_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "bpartnerId"} ,{lovField:"name", dsField: "bpartnerName"} ],
 			filterFieldMapping: [{lovParam:"companyIdForNewBpAccount", dsField: "companyId"} ]})
 		.addTextField({ name:"bpartnerName", dataIndex:"bpartnerName", noEdit:true })
@@ -133,12 +133,12 @@ Ext.define(Dnet.ns.md + "VendorAccount_Dc$Edit" , {
 		.addTextField({ name:"bpartner", dataIndex:"bpartner", noEdit:true , caseRestriction:"uppercase"})
 		.addTextField({ name:"bpartnerName", dataIndex:"bpartnerName", noEdit:true })
 		.addBooleanField({ name:"active", dataIndex:"active", noEdit:true })
-		.addLov({xtype:"md_CustomerGroups_Lov", name:"group", dataIndex:"group", caseRestriction:"uppercase",
+		.addLov({name:"group", dataIndex:"group", xtype:"md_CustomerGroups_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "groupId"} ]})
-		.addLov({xtype:"md_DocTypes_Lov", name:"paymentMethod", dataIndex:"paymentMethod", caseRestriction:"uppercase",
+		.addLov({name:"paymentMethod", dataIndex:"paymentMethod", xtype:"md_DocTypes_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "paymentMethodId"} ],
 			filterFieldMapping: [{lovField:"active", value: "true"}, {lovField:"category", value: "payment-out"} ]})
-		.addLov({xtype:"md_PaymentTerms_Lov", name:"paymentTerm", dataIndex:"paymentTerm",
+		.addLov({name:"paymentTerm", dataIndex:"paymentTerm", xtype:"md_PaymentTerms_Lov",
 			retFieldMapping: [{lovField:"id", dsField: "paymentTermId"} ]})
 		.addNumberField({name:"creditLimit", dataIndex:"creditLimit", decimals:2})
 		

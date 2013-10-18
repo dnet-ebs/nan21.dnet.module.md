@@ -55,3 +55,19 @@ Ext.define(Dnet.ns.md + "Product_Ds", {
 		{name:"entityFqn", type:"string"}
 	]
 });
+
+Ext.define(Dnet.ns.md + "Product_DsParam", {
+	extend: 'Ext.data.Model',
+	
+	fields: [
+		{name:"attr1", type:"string", forFilter:true},
+		{name:"attr1id", type:"string", forFilter:true},
+		{name:"attr1val", type:"string", forFilter:true},
+		{name:"attr2", type:"string", forFilter:true},
+		{name:"attr2id", type:"string", forFilter:true},
+		{name:"attr2val", type:"string", forFilter:true},
+		{name:"attr3", type:"string", forFilter:true},
+		{name:"attr3id", type:"string", forFilter:true},
+		{name:"attr3val", type:"string", forFilter:true}
+	]
+});

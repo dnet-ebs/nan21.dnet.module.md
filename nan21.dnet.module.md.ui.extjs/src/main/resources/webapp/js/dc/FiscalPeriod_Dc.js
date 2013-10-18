@@ -21,10 +21,10 @@ Ext.define(Dnet.ns.md + "FiscalPeriod_Dc$Filter" , {
 		this._getBuilder_()
 		
 		/* =========== controls =========== */
-		.addLov({xtype:"md_FiscalPeriods_Lov", name:"name", dataIndex:"name",
+		.addLov({name:"name", dataIndex:"name", xtype:"md_FiscalPeriods_Lov",
 			retFieldMapping: [{lovField:"id", dsField: "id"} ]})
 		.addCombo({ xtype:"combo", name:"type", dataIndex:"type", store:[ "month", "quarter", "half-year", "other"]})
-		.addLov({xtype:"md_FiscalYears_Lov", name:"fiscalYear", dataIndex:"fiscalYear",
+		.addLov({name:"fiscalYear", dataIndex:"fiscalYear", xtype:"md_FiscalYears_Lov",
 			retFieldMapping: [{lovField:"id", dsField: "fiscalYearId"} ]})
 		.addBooleanField({ name:"active", dataIndex:"active"})
 		.addBooleanField({ name:"posting", dataIndex:"posting"})
@@ -162,7 +162,7 @@ Ext.define(Dnet.ns.md + "FiscalPeriod_Dc$Edit" , {
 		.addDateField({name:"startDate", dataIndex:"startDate", allowBlank:false})
 		.addDateField({name:"endDate", dataIndex:"endDate", allowBlank:false})
 		.addCombo({ xtype:"combo", name:"type", dataIndex:"type", store:[ "month", "quarter", "half-year", "other"]})
-		.addLov({xtype:"md_FiscalYears_Lov", name:"fiscalYear", dataIndex:"fiscalYear",
+		.addLov({name:"fiscalYear", dataIndex:"fiscalYear", xtype:"md_FiscalYears_Lov",
 			retFieldMapping: [{lovField:"id", dsField: "fiscalYearId"} ]})
 		
 		/* =========== containers =========== */

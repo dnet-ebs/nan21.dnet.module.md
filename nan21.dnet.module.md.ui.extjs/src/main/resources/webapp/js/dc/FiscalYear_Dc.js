@@ -23,7 +23,7 @@ Ext.define(Dnet.ns.md + "FiscalYear_Dc$Filter" , {
 		/* =========== controls =========== */
 		.addTextField({ name:"name", dataIndex:"name"})
 		.addBooleanField({ name:"active", dataIndex:"active"})
-		.addLov({xtype:"md_Calendars_Lov", name:"calendar", dataIndex:"calendar",
+		.addLov({name:"calendar", dataIndex:"calendar", xtype:"md_Calendars_Lov",
 			retFieldMapping: [{lovField:"id", dsField: "calendarId"} ]})
 		
 		/* =========== containers =========== */
@@ -106,7 +106,7 @@ Ext.define(Dnet.ns.md + "FiscalYear_Dc$Edit" , {
 		.addTextField({ name:"name", dataIndex:"name", noEdit:true })
 		.addBooleanField({ name:"active", dataIndex:"active"})
 		.addTextField({ name:"notes", dataIndex:"notes"})
-		.addLov({xtype:"md_Calendars_Lov", name:"calendar", dataIndex:"calendar",
+		.addLov({name:"calendar", dataIndex:"calendar", xtype:"md_Calendars_Lov",
 			retFieldMapping: [{lovField:"id", dsField: "calendarId"} ]})
 		.addDateField({name:"startDate", dataIndex:"startDate", allowBlank:false})
 		.addDateField({name:"endDate", dataIndex:"endDate", allowBlank:false})

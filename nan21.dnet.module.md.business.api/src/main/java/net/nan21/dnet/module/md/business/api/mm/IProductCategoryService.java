@@ -7,6 +7,7 @@ package net.nan21.dnet.module.md.business.api.mm;
 
 import java.util.List;
 import net.nan21.dnet.core.api.service.business.IEntityService;
+import net.nan21.dnet.module.bd.domain.impl.attr.AttributeSet;
 import net.nan21.dnet.module.md.domain.impl.mm.ProductCategory;
 
 /**
@@ -36,4 +37,14 @@ public interface IProductCategoryService
 	 * Find by ID of reference: category.id
 	 */
 	public List<ProductCategory> findByCategoryId(String categoryId);
+
+	/**
+	 * Find by reference: attributeSet
+	 */
+	public List<ProductCategory> findByAttributeSet(AttributeSet attributeSet);
+
+	/**
+	 * Find by ID of reference: attributeSet.id
+	 */
+	public List<ProductCategory> findByAttributeSetId(String attributeSetId);
 }

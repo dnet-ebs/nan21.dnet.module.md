@@ -21,9 +21,9 @@ Ext.define(Dnet.ns.md + "DocSequence_Dc$Filter" , {
 		this._getBuilder_()
 		
 		/* =========== controls =========== */
-		.addLov({xtype:"md_DocTypes_Lov", name:"docType", dataIndex:"docType", caseRestriction:"uppercase",
+		.addLov({name:"docType", dataIndex:"docType", xtype:"md_DocTypes_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "docTypeId"} ]})
-		.addLov({xtype:"md_OrgsLegalEntity_Lov", name:"company", dataIndex:"company", caseRestriction:"uppercase",
+		.addLov({name:"company", dataIndex:"company", xtype:"md_OrgsLegalEntity_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "companyId"} ]})
 		.addBooleanField({ name:"active", dataIndex:"active"})
 		.addTextField({ name:"prefix", dataIndex:"prefix", maxLength:4})
