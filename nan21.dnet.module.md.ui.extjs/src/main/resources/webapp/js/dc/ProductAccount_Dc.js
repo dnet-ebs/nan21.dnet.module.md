@@ -73,7 +73,7 @@ Ext.define(Dnet.ns.md + "ProductAccount_Dc$EditList" , {
 				retFieldMapping: [{lovField:"id", dsField: "productId"} ,{lovField:"name", dsField: "productName"} ],
 				filterFieldMapping: [{lovParam:"companyIdForNewProdAccount", dsField: "companyId"}, {lovField:"active", value: "true"} ]}})
 		.addTextColumn({name:"productName", dataIndex:"productName", width:200, noEdit: true})
-		.addLov({name:"type", dataIndex:"type", xtype:"gridcolumn", width:120, 
+		.addLov({name:"type", dataIndex:"type", xtype:"gridcolumn", width:150, 
 			editor:{xtype:"md_ProductAccountTypes_Lov", selectOnFocus:true, caseRestriction:"uppercase",
 				retFieldMapping: [{lovField:"id", dsField: "typeId"} ,{lovField:"purchase", dsField: "purchase"} ,{lovField:"sale", dsField: "sale"} ,{lovField:"inventory", dsField: "inventory"} ],
 				filterFieldMapping: [{lovField:"active", value: "true"} ]}})
