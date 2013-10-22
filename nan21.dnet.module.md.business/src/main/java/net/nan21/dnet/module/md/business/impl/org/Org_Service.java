@@ -76,4 +76,23 @@ public class Org_Service extends AbstractEntityService<Org>
 						Session.user.get().getClient().getId())
 				.setParameter("typeId", typeId).getResultList();
 	}
+	/**
+	 * Find by reference: company
+	 */
+	public List<Org> findByCompany(Org company) {
+		return this.findByCompanyId(company.getId());
+	}
+	/**
+	 * Find by ID of reference: company.id
+	 */
+	public List<Org> findByCompanyId(String companyId) {
+		return (List<Org>) this
+				.getEntityManager()
+				.createQuery(
+						"select e from Org e where e.clientId = :clientId and e.company.id = :companyId",
+						Org.class)
+				.setParameter("clientId",
+						Session.user.get().getClient().getId())
+				.setParameter("companyId", companyId).getResultList();
+	}
 }

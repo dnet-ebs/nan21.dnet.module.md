@@ -26,13 +26,15 @@ Ext.define(Dnet.ns.md + "Org_Dc$Filter" , {
 		.addTextField({ name:"name", dataIndex:"name"})
 		.addLov({name:"type", dataIndex:"type", xtype:"md_OrgTypes_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "typeId"} ]})
+		.addLov({name:"company", dataIndex:"company", xtype:"md_OrgsLegalEntity_Lov", caseRestriction:"uppercase",
+			retFieldMapping: [{lovField:"id", dsField: "companyId"} ]})
 		.addBooleanField({ name:"active", dataIndex:"active"})
 		
 		/* =========== containers =========== */
 		.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 		autoScroll:true, padding:"0 30 5 0"})
 		.addPanel({ name:"col1", width:250, layout:"form"})
-		.addPanel({ name:"col2", width:220, layout:"form"})
+		.addPanel({ name:"col2", width:250, layout:"form"})
 		.addPanel({ name:"col3", width:170, layout:"form"});
 	},
 
@@ -43,29 +45,8 @@ Ext.define(Dnet.ns.md + "Org_Dc$Filter" , {
 		this._getBuilder_()
 		.addChildrenTo("main", ["col1", "col2", "col3"])
 		.addChildrenTo("col1", ["code", "name"])
-		.addChildrenTo("col2", ["type"])
+		.addChildrenTo("col2", ["type", "company"])
 		.addChildrenTo("col3", ["active"]);
-	}
-});
-
-/* ================= GRID: List ================= */
-
-Ext.define(Dnet.ns.md + "Org_Dc$List" , {
-	extend: "dnet.core.dc.view.AbstractDcvGrid",
-	alias: "widget.md_Org_Dc$List",
-
-	/**
-	 * Columns definition
-	 */
-	_defineColumns_: function() {
-		this._getBuilder_()
-		.addTextColumn({ name:"code", dataIndex:"code", width:120})
-		.addTextColumn({ name:"name", dataIndex:"name", width:200})
-		.addTextColumn({ name:"type", dataIndex:"type", width:120})
-		.addBooleanColumn({ name:"active", dataIndex:"active"})
-		.addTextColumn({ name:"description", dataIndex:"description", width:200})
-		.addTextColumn({ name:"typeId", dataIndex:"typeId", hidden:true, width:100})
-		.addDefaults();
 	}
 });
 
@@ -86,6 +67,9 @@ Ext.define(Dnet.ns.md + "Org_Dc$EditList" , {
 		.addLov({name:"type", dataIndex:"type", xtype:"gridcolumn", width:120, 
 			editor:{xtype:"md_OrgTypes_Lov", selectOnFocus:true, caseRestriction:"uppercase",
 				retFieldMapping: [{lovField:"id", dsField: "typeId"} ]}})
+		.addLov({name:"company", dataIndex:"company", xtype:"gridcolumn", width:120, 
+			editor:{xtype:"md_OrgsLegalEntity_Lov", selectOnFocus:true, caseRestriction:"uppercase",
+				retFieldMapping: [{lovField:"id", dsField: "companyId"} ]}})
 		.addBooleanColumn({name:"active", dataIndex:"active"})
 		.addTextColumn({name:"description", dataIndex:"description", width:200})
 		.addTextColumn({name:"typeId", dataIndex:"typeId", hidden:true, width:100})

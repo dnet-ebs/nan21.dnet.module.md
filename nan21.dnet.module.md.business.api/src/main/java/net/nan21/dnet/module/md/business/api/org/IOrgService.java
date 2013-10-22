@@ -35,4 +35,14 @@ public interface IOrgService extends IEntityService<Org> {
 	 * Find by ID of reference: type.id
 	 */
 	public List<Org> findByTypeId(String typeId);
+
+	/**
+	 * Find by reference: company
+	 */
+	public List<Org> findByCompany(Org company);
+
+	/**
+	 * Find by ID of reference: company.id
+	 */
+	public List<Org> findByCompanyId(String companyId);
 }

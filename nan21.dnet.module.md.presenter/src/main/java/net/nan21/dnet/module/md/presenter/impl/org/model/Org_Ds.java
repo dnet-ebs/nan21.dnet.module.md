@@ -16,12 +16,16 @@ import net.nan21.dnet.module.md.domain.impl.org.Org;
 import net.nan21.dnet.module.md.domain.impl.org.OrgType;
 
 @Ds(entity = Org.class, sort = {@SortField(field = Org_Ds.f_code)})
-@RefLookups({@RefLookup(refId = Org_Ds.f_typeId, namedQuery = OrgType.NQ_FIND_BY_CODE, params = {@Param(name = "code", field = Org_Ds.f_type)})})
+@RefLookups({
+		@RefLookup(refId = Org_Ds.f_typeId, namedQuery = OrgType.NQ_FIND_BY_CODE, params = {@Param(name = "code", field = Org_Ds.f_type)}),
+		@RefLookup(refId = Org_Ds.f_companyId, namedQuery = Org.NQ_FIND_BY_CODE, params = {@Param(name = "code", field = Org_Ds.f_company)})})
 public class Org_Ds extends AbstractTypeWithCodeDs<Org> {
 
 	public static final String f_valid = "valid";
 	public static final String f_typeId = "typeId";
 	public static final String f_type = "type";
+	public static final String f_companyId = "companyId";
+	public static final String f_company = "company";
 
 	@DsField
 	private Boolean valid;
@@ -31,6 +35,12 @@ public class Org_Ds extends AbstractTypeWithCodeDs<Org> {
 
 	@DsField(join = "left", path = "type.code")
 	private String type;
+
+	@DsField(join = "left", path = "company.id")
+	private String companyId;
+
+	@DsField(join = "left", path = "company.code")
+	private String company;
 
 	public Org_Ds() {
 		super();
@@ -62,5 +72,21 @@ public class Org_Ds extends AbstractTypeWithCodeDs<Org> {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public String getCompanyId() {
+		return this.companyId;
+	}
+
+	public void setCompanyId(String companyId) {
+		this.companyId = companyId;
+	}
+
+	public String getCompany() {
+		return this.company;
+	}
+
+	public void setCompany(String company) {
+		this.company = company;
 	}
 }

@@ -18,6 +18,7 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import net.nan21.dnet.core.domain.impl.AbstractTypeWithCode;
+import net.nan21.dnet.module.md.domain.impl.org.Org;
 import net.nan21.dnet.module.md.domain.impl.org.OrgType;
 import org.eclipse.persistence.config.HintValues;
 import org.eclipse.persistence.config.QueryHints;
@@ -57,6 +58,10 @@ public class Org extends AbstractTypeWithCode {
 	@JoinColumn(name = "TYPE_ID", referencedColumnName = "ID")
 	private OrgType type;
 
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Org.class)
+	@JoinColumn(name = "COMPANY_ID", referencedColumnName = "ID")
+	private Org company;
+
 	public Boolean getValid() {
 		return this.valid;
 	}
@@ -74,6 +79,17 @@ public class Org extends AbstractTypeWithCode {
 			this.__validate_client_context__(type.getClientId());
 		}
 		this.type = type;
+	}
+
+	public Org getCompany() {
+		return this.company;
+	}
+
+	public void setCompany(Org company) {
+		if (company != null) {
+			this.__validate_client_context__(company.getClientId());
+		}
+		this.company = company;
 	}
 
 	@PrePersist

@@ -16,6 +16,8 @@ Ext.define(Dnet.ns.md + "Org_Ds", {
 		{name:"valid", type:"boolean"},
 		{name:"typeId", type:"string"},
 		{name:"type", type:"string"},
+		{name:"companyId", type:"string"},
+		{name:"company", type:"string"},
 		{name:"id", type:"string"},
 		{name:"code", type:"string"},
 		{name:"name", type:"string"},
