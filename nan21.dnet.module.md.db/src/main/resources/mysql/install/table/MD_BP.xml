@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+	<changeSet author="amathe" id="TBL">
+		<createTable tableName="MD_BP">
+			<column name="ACTIVE" type="int(1)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="BIRTHDATE" type="date"/>
+			<column name="CLIENTID" type="varchar(64)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="CODE" type="varchar(64)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="COMPANYNAME" type="varchar(255)"/>
+			<column name="CREATEDAT" type="datetime">
+				<constraints nullable="false"/>
+			</column>
+			<column name="CREATEDBY" type="varchar(32)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="DESCRIPTION" type="text"/>
+			<column name="FIRSTNAME" type="varchar(255)"/>
+			<column name="GENDER" type="varchar(16)"/>
+			<column name="ID" type="varchar(64)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="IDENTITYCARDNO" type="varchar(255)"/>
+			<column name="LASTNAME" type="varchar(255)"/>
+			<column name="MIDDLENAME" type="varchar(255)"/>
+			<column name="MODIFIEDAT" type="datetime">
+				<constraints nullable="false"/>
+			</column>
+			<column name="MODIFIEDBY" type="varchar(32)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="NAME" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="NOTES" type="text"/>
+			<column name="PASSPORTNO" type="varchar(255)"/>
+			<column name="REFID" type="varchar(64)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="REGISTRATIONDATE" type="date"/>
+			<column name="REGISTRATIONNO" type="varchar(32)"/>
+			<column name="TAXPAYERNO" type="varchar(255)"/>
+			<column name="TYPE" type="varchar(16)"/>
+			<column name="VERSION" type="bigint(10)"/>
+			<column name="COUNTRY_ID" type="varchar(64)">
+				<constraints />
+			</column>
+			<column name="LEGALFORM_ID" type="varchar(64)">
+				<constraints />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="amathe" id="PK">
+		<addPrimaryKey 
+			constraintName="PK_MD_BP"
+			tableName="MD_BP"
+			columnNames="ID"/>
+	</changeSet>
+	
+	<changeSet author="amathe" id="UK-1">
+		<addUniqueConstraint
+			constraintName="UK_MD_BP1"
+			tableName="MD_BP"
+			columnNames="CLIENTID,CODE"/>
+	</changeSet>
+
+</databaseChangeLog>
