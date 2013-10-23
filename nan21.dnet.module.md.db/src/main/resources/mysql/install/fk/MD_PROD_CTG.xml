@@ -8,15 +8,13 @@
 		baseTableName="MD_PROD_CTG"
 		baseColumnNames="CATEGORY_ID"
 		referencedTableName="MD_PROD_CTG" 
-		referencedColumnNames="ID"
-		/>
+		referencedColumnNames="ID"/>
 </changeSet>
 <changeSet author="amathe" id="FK-2">
 	<addForeignKeyConstraint constraintName="FK_MD_PROD_CTG2" 
 		baseTableName="MD_PROD_CTG"
 		baseColumnNames="ATTRIBUTESET_ID"
 		referencedTableName="BD_ATTRSET" 
-		referencedColumnNames="ID"
-		/>
+		referencedColumnNames="ID"/>
 </changeSet>
 </databaseChangeLog>
