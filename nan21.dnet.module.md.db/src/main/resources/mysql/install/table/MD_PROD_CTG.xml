@@ -43,12 +43,8 @@
 				<constraints nullable="false"/>
 			</column>
 			<column name="VERSION" type="bigint(10)"/>
-			<column name="ATTRIBUTESET_ID" type="varchar(64)">
-				<constraints />
-			</column>
-			<column name="CATEGORY_ID" type="varchar(64)">
-				<constraints />
-			</column>
+			<column name="ATTRIBUTESET_ID" type="varchar(64)"/>
+			<column name="CATEGORY_ID" type="varchar(64)"/>
 		</createTable>
 	</changeSet>
 

@@ -42,9 +42,7 @@
 				<constraints nullable="false"/>
 			</column>
 			<column name="VERSION" type="bigint(10)"/>
-			<column name="COMPANY_ID" type="varchar(64)">
-				<constraints nullable="false"/>
-			</column>
+			<column name="COMPANY_ID" type="varchar(64)"/>
 			<column name="TYPE_ID" type="varchar(64)">
 				<constraints nullable="false"/>
 			</column>

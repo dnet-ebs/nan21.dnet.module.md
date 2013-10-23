@@ -45,9 +45,7 @@
 			<column name="CATEGORY_ID" type="varchar(64)">
 				<constraints nullable="false"/>
 			</column>
-			<column name="PARENTTAX_ID" type="varchar(64)">
-				<constraints />
-			</column>
+			<column name="PARENTTAX_ID" type="varchar(64)"/>
 		</createTable>
 	</changeSet>
 

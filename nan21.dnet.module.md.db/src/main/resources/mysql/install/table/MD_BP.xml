@@ -51,12 +51,8 @@
 			<column name="TAXPAYERNO" type="varchar(255)"/>
 			<column name="TYPE" type="varchar(16)"/>
 			<column name="VERSION" type="bigint(10)"/>
-			<column name="COUNTRY_ID" type="varchar(64)">
-				<constraints />
-			</column>
-			<column name="LEGALFORM_ID" type="varchar(64)">
-				<constraints />
-			</column>
+			<column name="COUNTRY_ID" type="varchar(64)"/>
+			<column name="LEGALFORM_ID" type="varchar(64)"/>
 		</createTable>
 	</changeSet>
 

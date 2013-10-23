@@ -50,27 +50,13 @@
 			<column name="VERSION" type="number(10)"/>
 			<column name="VOLUME" type="number(18,2)"/>
 			<column name="WEIGHT" type="number(18,2)"/>
-			<column name="ATTRIBUTESET_ID" type="varchar2(64)">
-				<constraints />
-			</column>
-			<column name="CATEGORY_ID" type="varchar2(64)">
-				<constraints />
-			</column>
-			<column name="DEFAULTUOM_ID" type="varchar2(64)">
-				<constraints />
-			</column>
-			<column name="DIMUOM_ID" type="varchar2(64)">
-				<constraints />
-			</column>
-			<column name="MANUFACTURER_ID" type="varchar2(64)">
-				<constraints />
-			</column>
-			<column name="VOLUMEUOM_ID" type="varchar2(64)">
-				<constraints />
-			</column>
-			<column name="WEIGHTUOM_ID" type="varchar2(64)">
-				<constraints />
-			</column>
+			<column name="ATTRIBUTESET_ID" type="varchar2(64)"/>
+			<column name="CATEGORY_ID" type="varchar2(64)"/>
+			<column name="DEFAULTUOM_ID" type="varchar2(64)"/>
+			<column name="DIMUOM_ID" type="varchar2(64)"/>
+			<column name="MANUFACTURER_ID" type="varchar2(64)"/>
+			<column name="VOLUMEUOM_ID" type="varchar2(64)"/>
+			<column name="WEIGHTUOM_ID" type="varchar2(64)"/>
 		</createTable>
 	</changeSet>
 

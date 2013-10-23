@@ -46,27 +46,13 @@
 			<column name="BPARTNER_ID" type="varchar2(64)">
 				<constraints nullable="false"/>
 			</column>
-			<column name="COMPANY_ID" type="varchar2(64)">
-				<constraints />
-			</column>
-			<column name="CUSTGROUP_ID" type="varchar2(64)">
-				<constraints />
-			</column>
-			<column name="CUSTPAYMENTMETHOD_ID" type="varchar2(64)">
-				<constraints />
-			</column>
-			<column name="CUSTPAYMENTTERM_ID" type="varchar2(64)">
-				<constraints />
-			</column>
-			<column name="VENDGROUP_ID" type="varchar2(64)">
-				<constraints />
-			</column>
-			<column name="VENDPAYMENTMETHOD_ID" type="varchar2(64)">
-				<constraints />
-			</column>
-			<column name="VENDPAYMENTTERM_ID" type="varchar2(64)">
-				<constraints />
-			</column>
+			<column name="COMPANY_ID" type="varchar2(64)"/>
+			<column name="CUSTGROUP_ID" type="varchar2(64)"/>
+			<column name="CUSTPAYMENTMETHOD_ID" type="varchar2(64)"/>
+			<column name="CUSTPAYMENTTERM_ID" type="varchar2(64)"/>
+			<column name="VENDGROUP_ID" type="varchar2(64)"/>
+			<column name="VENDPAYMENTMETHOD_ID" type="varchar2(64)"/>
+			<column name="VENDPAYMENTTERM_ID" type="varchar2(64)"/>
 		</createTable>
 	</changeSet>
 

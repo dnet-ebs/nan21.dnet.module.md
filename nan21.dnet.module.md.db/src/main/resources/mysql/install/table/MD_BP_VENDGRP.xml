@@ -40,12 +40,8 @@
 				<constraints nullable="false"/>
 			</column>
 			<column name="VERSION" type="bigint(10)"/>
-			<column name="PAYMENTMETHOD_ID" type="varchar(64)">
-				<constraints />
-			</column>
-			<column name="PAYMENTTERM_ID" type="varchar(64)">
-				<constraints />
-			</column>
+			<column name="PAYMENTMETHOD_ID" type="varchar(64)"/>
+			<column name="PAYMENTTERM_ID" type="varchar(64)"/>
 		</createTable>
 	</changeSet>
 

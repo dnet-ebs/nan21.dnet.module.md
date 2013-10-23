@@ -39,12 +39,8 @@
 				<constraints nullable="false"/>
 			</column>
 			<column name="VERSION" type="bigint(10)"/>
-			<column name="BPARTNER_ID" type="varchar(64)">
-				<constraints />
-			</column>
-			<column name="POSITION_ID" type="varchar(64)">
-				<constraints />
-			</column>
+			<column name="BPARTNER_ID" type="varchar(64)"/>
+			<column name="POSITION_ID" type="varchar(64)"/>
 		</createTable>
 	</changeSet>
 
