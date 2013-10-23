@@ -8,7 +8,6 @@
 		baseTableName="MD_IVT"
 		baseColumnNames="ORG_ID"
 		referencedTableName="MD_ORG" 
-		referencedColumnNames="ID"
-		/>
+		referencedColumnNames="ID"/>
 </changeSet>
 </databaseChangeLog>

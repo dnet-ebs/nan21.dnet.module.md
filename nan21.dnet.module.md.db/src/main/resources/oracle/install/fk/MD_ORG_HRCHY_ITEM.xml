@@ -8,23 +8,20 @@
 		baseTableName="MD_ORG_HRCHY_ITEM"
 		baseColumnNames="HIERARCHY_ID"
 		referencedTableName="MD_ORG_HRCHY" 
-		referencedColumnNames="ID"
-		/>
+		referencedColumnNames="ID"/>
 </changeSet>
 <changeSet author="amathe" id="FK-2">
 	<addForeignKeyConstraint constraintName="FK_MD_ORG_HRCHY_ITEM2" 
 		baseTableName="MD_ORG_HRCHY_ITEM"
 		baseColumnNames="ORG_ID"
 		referencedTableName="MD_ORG" 
-		referencedColumnNames="ID"
-		/>
+		referencedColumnNames="ID"/>
 </changeSet>
 <changeSet author="amathe" id="FK-3">
 	<addForeignKeyConstraint constraintName="FK_MD_ORG_HRCHY_ITEM3" 
 		baseTableName="MD_ORG_HRCHY_ITEM"
 		baseColumnNames="PARENT_ID"
 		referencedTableName="MD_ORG" 
-		referencedColumnNames="ID"
-		/>
+		referencedColumnNames="ID"/>
 </changeSet>
 </databaseChangeLog>

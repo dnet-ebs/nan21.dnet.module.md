@@ -8,7 +8,6 @@
 		baseTableName="MD_DOC_SEQ_VAL"
 		baseColumnNames="DOCSEQUENCE_ID"
 		referencedTableName="MD_DOC_SEQ" 
-		referencedColumnNames="ID"
-		/>
+		referencedColumnNames="ID"/>
 </changeSet>
 </databaseChangeLog>

@@ -8,7 +8,6 @@
 		baseTableName="MD_PER_YEAR"
 		baseColumnNames="CALENDAR_ID"
 		referencedTableName="MD_PER_CLND" 
-		referencedColumnNames="ID"
-		/>
+		referencedColumnNames="ID"/>
 </changeSet>
 </databaseChangeLog>

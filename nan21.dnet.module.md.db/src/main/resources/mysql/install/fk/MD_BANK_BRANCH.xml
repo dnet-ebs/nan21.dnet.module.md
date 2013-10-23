@@ -8,7 +8,6 @@
 		baseTableName="MD_BANK_BRANCH"
 		baseColumnNames="BANK_ID"
 		referencedTableName="MD_BANK" 
-		referencedColumnNames="ID"
-		/>
+		referencedColumnNames="ID"/>
 </changeSet>
 </databaseChangeLog>
