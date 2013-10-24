@@ -10,7 +10,6 @@ import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
 import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.domain.impl.attr.AttributeSet;
-import net.nan21.dnet.module.md.business.api.mm.IProductCategoryService;
 import net.nan21.dnet.module.md.domain.impl.mm.ProductCategory;
 
 /**
@@ -20,9 +19,7 @@ import net.nan21.dnet.module.md.domain.impl.mm.ProductCategory;
  */
 public class ProductCategory_Service
 		extends
-			AbstractEntityService<ProductCategory>
-		implements
-			IProductCategoryService {
+			AbstractEntityService<ProductCategory> {
 
 	public ProductCategory_Service() {
 		super();
