@@ -129,31 +129,62 @@ Ext.define(Dnet.ns.md + "Product_Dc$List" , {
 	}
 });
 
-/* ================= EDIT FORM: CtxFormName ================= */
+/* ================= EDIT-GRID: EditList ================= */
 
-Ext.define(Dnet.ns.md + "Product_Dc$CtxFormName" , {
-	extend: "dnet.core.dc.view.AbstractDcvEditForm",
-	alias: "widget.md_Product_Dc$CtxFormName",
+Ext.define(Dnet.ns.md + "Product_Dc$EditList" , {
+	extend: "dnet.core.dc.view.AbstractDcvEditableGrid",
+	alias: "widget.md_Product_Dc$EditList",
+	_bulkEditFields_: ["active","storable","uom","attributeSet","category","manufacturer","weight","weightUom","volume","volumeUom","dimWidth","dimHeight","dimDepth","dimUom"],
 
 	/**
-	 * Components definition
+	 * Columns definition
 	 */
-	_defineElements_: function() {
-		this._getBuilder_()
-		
-		/* =========== controls =========== */
-		.addTextField({ name:"name", dataIndex:"name", noEdit:true , fieldCls:"important-field"})
-		
-		/* =========== containers =========== */
-		.addPanel({ name:"main", autoScroll:true, width:"90%", layout:"form"});
-	},
-
-	/**
-	 * Combine the components
-	 */			
-	_linkElements_: function() {
-		this._getBuilder_()
-		.addChildrenTo("main", ["name"]);
+	_defineColumns_: function() {
+		this._getBuilder_()	
+		.addTextColumn({name:"code", dataIndex:"code", width:150, caseRestriction:"uppercase"})
+		.addTextColumn({name:"name", dataIndex:"name", width:200})
+		.addBooleanColumn({name:"active", dataIndex:"active", width:60})
+		.addBooleanColumn({name:"storable", dataIndex:"storable", width:60})
+		.addLov({name:"uom", dataIndex:"uom", xtype:"gridcolumn", width:120, 
+			editor:{xtype:"bd_Uoms_Lov", selectOnFocus:true, allowBlank:false, caseRestriction:"uppercase",
+				retFieldMapping: [{lovField:"id", dsField: "uomId"} ]}})
+		.addTextColumn({name:"uomId", dataIndex:"uomId", hidden:true, width:100, noEdit: true})
+		.addLov({name:"attributeSet", dataIndex:"attributeSet", xtype:"gridcolumn", width:120, 
+			editor:{xtype:"bd_AttributeSets_Lov", selectOnFocus:true, caseRestriction:"uppercase",
+				retFieldMapping: [{lovField:"id", dsField: "attributeSetId"} ],
+				filterFieldMapping: [{lovField:"active", value: "true"} ]}})
+		.addLov({name:"category", dataIndex:"category", xtype:"gridcolumn", width:120, 
+			editor:{xtype:"md_ProductCategories_Lov", selectOnFocus:true, caseRestriction:"uppercase",
+				retFieldMapping: [{lovField:"id", dsField: "categoryId"} ,{lovField:"name", dsField: "categoryName"} ],
+				filterFieldMapping: [{lovField:"active", value: "true"}, {lovField:"folder", value: "true"} ]}})
+		.addTextColumn({name:"categoryId", dataIndex:"categoryId", hidden:true, width:100, noEdit: true})
+		.addTextColumn({name:"categoryName", dataIndex:"categoryName", hidden:true, width:200, noEdit: true})
+		.addLov({name:"manufacturer", dataIndex:"manufacturer", xtype:"gridcolumn", width:120, 
+			editor:{xtype:"md_ProductManufacturers_Lov", selectOnFocus:true, caseRestriction:"uppercase",
+				retFieldMapping: [{lovField:"id", dsField: "manufacturerId"} ]}})
+		.addTextColumn({name:"manufacturerId", dataIndex:"manufacturerId", hidden:true, width:100, noEdit: true})
+		.addTextColumn({name:"manufacturerProductNo", dataIndex:"manufacturerProductNo", width:200})
+		.addTextColumn({name:"description", dataIndex:"description", hidden:true, width:200})
+		.addNumberColumn({name:"weight", dataIndex:"weight", align:"right", decimals:2 })
+		.addLov({name:"weightUom", dataIndex:"weightUom", xtype:"gridcolumn", width:120, 
+			editor:{xtype:"bd_UomsMass_Lov", selectOnFocus:true, caseRestriction:"uppercase",
+				retFieldMapping: [{lovField:"id", dsField: "weightUomId"} ]}})
+		.addTextColumn({name:"weightUomId", dataIndex:"weightUomId", hidden:true, width:100, noEdit: true})
+		.addNumberColumn({name:"volume", dataIndex:"volume", hidden:true, align:"right", decimals:2 })
+		.addLov({name:"volumeUom", dataIndex:"volumeUom", hidden:true, xtype:"gridcolumn", width:120, 
+			editor:{xtype:"bd_UomsVolume_Lov", selectOnFocus:true, caseRestriction:"uppercase",
+				retFieldMapping: [{lovField:"id", dsField: "volumeUomId"} ]}})
+		.addTextColumn({name:"volumeUomId", dataIndex:"volumeUomId", hidden:true, width:100, noEdit: true})
+		.addNumberColumn({name:"dimWidth", dataIndex:"dimWidth", align:"right", decimals:2 })
+		.addNumberColumn({name:"dimHeight", dataIndex:"dimHeight", align:"right", decimals:2 })
+		.addNumberColumn({name:"dimDepth", dataIndex:"dimDepth", align:"right", decimals:2 })
+		.addLov({name:"dimUom", dataIndex:"dimUom", xtype:"gridcolumn", width:120, 
+			editor:{xtype:"bd_UomsLength_Lov", selectOnFocus:true, caseRestriction:"uppercase",
+				retFieldMapping: [{lovField:"id", dsField: "dimUomId"} ]}})
+		.addTextColumn({name:"dimUomId", dataIndex:"dimUomId", hidden:true, width:100, noEdit: true})
+		.addTextColumn({name:"iconUrl", dataIndex:"iconUrl", hidden:true, width:100})
+		.addTextColumn({name:"imageUrl", dataIndex:"imageUrl", hidden:true, width:100})
+		.addDefaults();
 	}
 });
 
