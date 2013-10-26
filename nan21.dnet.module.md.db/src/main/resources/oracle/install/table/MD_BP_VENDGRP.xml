@@ -21,7 +21,7 @@
 			<column name="CREATEDBY" type="varchar2(32)">
 				<constraints nullable="false"/>
 			</column>
-			<column name="CREDITLIMIT" type="number(18,2)"/>
+			<column name="CREDITLIMIT" type="number(21,6)"/>
 			<column name="DESCRIPTION" type="varchar2(400)"/>
 			<column name="ID" type="varchar2(64)">
 				<constraints nullable="false"/>

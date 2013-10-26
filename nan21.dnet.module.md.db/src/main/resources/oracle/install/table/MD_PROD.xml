@@ -22,9 +22,9 @@
 				<constraints nullable="false"/>
 			</column>
 			<column name="DESCRIPTION" type="varchar2(400)"/>
-			<column name="DIMDEPTH" type="number(18,2)"/>
-			<column name="DIMHEIGHT" type="number(18,2)"/>
-			<column name="DIMWIDTH" type="number(18,2)"/>
+			<column name="DIMDEPTH" type="number(21,6)"/>
+			<column name="DIMHEIGHT" type="number(21,6)"/>
+			<column name="DIMWIDTH" type="number(21,6)"/>
 			<column name="ICONURL" type="varchar2(255)"/>
 			<column name="ID" type="varchar2(64)">
 				<constraints nullable="false"/>
@@ -48,8 +48,8 @@
 				<constraints nullable="false"/>
 			</column>
 			<column name="VERSION" type="number(10)"/>
-			<column name="VOLUME" type="number(18,2)"/>
-			<column name="WEIGHT" type="number(18,2)"/>
+			<column name="VOLUME" type="number(21,6)"/>
+			<column name="WEIGHT" type="number(21,6)"/>
 			<column name="ATTRIBUTESET_ID" type="varchar2(64)"/>
 			<column name="CATEGORY_ID" type="varchar2(64)"/>
 			<column name="DEFAULTUOM_ID" type="varchar2(64)"/>

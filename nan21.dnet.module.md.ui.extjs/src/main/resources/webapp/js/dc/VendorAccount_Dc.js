@@ -74,7 +74,7 @@ Ext.define(Dnet.ns.md + "VendorAccount_Dc$List" , {
 		.addBooleanColumn({ name:"active", dataIndex:"active"})
 		.addTextColumn({ name:"group", dataIndex:"group", width:120})
 		.addTextColumn({ name:"groupId", dataIndex:"groupId", hidden:true, width:100})
-		.addNumberColumn({ name:"creditLimit", dataIndex:"creditLimit", decimals:2})
+		.addNumberColumn({ name:"creditLimit", dataIndex:"creditLimit", decimals:6})
 		.addTextColumn({ name:"paymentMethod", dataIndex:"paymentMethod", width:120})
 		.addTextColumn({ name:"paymentMethodId", dataIndex:"paymentMethodId", hidden:true, width:100})
 		.addTextColumn({ name:"paymentTerm", dataIndex:"paymentTerm", width:200})
@@ -140,7 +140,7 @@ Ext.define(Dnet.ns.md + "VendorAccount_Dc$Edit" , {
 			filterFieldMapping: [{lovField:"active", value: "true"}, {lovField:"category", value: "payment-out"} ]})
 		.addLov({name:"paymentTerm", dataIndex:"paymentTerm", xtype:"md_PaymentTerms_Lov",
 			retFieldMapping: [{lovField:"id", dsField: "paymentTermId"} ]})
-		.addNumberField({name:"creditLimit", dataIndex:"creditLimit", decimals:2})
+		.addNumberField({name:"creditLimit", dataIndex:"creditLimit", decimals:6})
 		
 		/* =========== containers =========== */
 		.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},

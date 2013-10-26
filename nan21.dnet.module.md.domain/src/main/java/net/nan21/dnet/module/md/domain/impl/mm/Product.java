@@ -68,19 +68,19 @@ public class Product extends AbstractTypeWithCode {
 	@Column(name = "STORABLE", nullable = false)
 	private Boolean storable;
 
-	@Column(name = "WEIGHT", precision = 18, scale = 2)
+	@Column(name = "WEIGHT", precision = 21, scale = 6)
 	private BigDecimal weight;
 
-	@Column(name = "VOLUME", precision = 18, scale = 2)
+	@Column(name = "VOLUME", precision = 21, scale = 6)
 	private BigDecimal volume;
 
-	@Column(name = "DIMWIDTH", precision = 18, scale = 2)
+	@Column(name = "DIMWIDTH", precision = 21, scale = 6)
 	private BigDecimal dimWidth;
 
-	@Column(name = "DIMHEIGHT", precision = 18, scale = 2)
+	@Column(name = "DIMHEIGHT", precision = 21, scale = 6)
 	private BigDecimal dimHeight;
 
-	@Column(name = "DIMDEPTH", precision = 18, scale = 2)
+	@Column(name = "DIMDEPTH", precision = 21, scale = 6)
 	private BigDecimal dimDepth;
 
 	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Uom.class)

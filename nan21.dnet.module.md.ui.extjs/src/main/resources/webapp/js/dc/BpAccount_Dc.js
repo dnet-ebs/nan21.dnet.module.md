@@ -85,12 +85,12 @@ Ext.define(Dnet.ns.md + "BpAccount_Dc$List" , {
 		.addBooleanColumn({ name:"active", dataIndex:"active"})
 		.addTextColumn({ name:"customerGroup", dataIndex:"customerGroup", width:120})
 		.addTextColumn({ name:"customerGroupId", dataIndex:"customerGroupId", hidden:true, width:100})
-		.addNumberColumn({ name:"customerCreditLimit", dataIndex:"customerCreditLimit", hidden:true, decimals:2})
+		.addNumberColumn({ name:"customerCreditLimit", dataIndex:"customerCreditLimit", hidden:true, decimals:6})
 		.addTextColumn({ name:"customerPaymentMethod", dataIndex:"customerPaymentMethod", hidden:true, width:120})
 		.addTextColumn({ name:"customerPaymentTerm", dataIndex:"customerPaymentTerm", hidden:true, width:200})
 		.addTextColumn({ name:"vendorGroup", dataIndex:"vendorGroup", width:120})
 		.addTextColumn({ name:"vendorGroupId", dataIndex:"vendorGroupId", hidden:true, width:100})
-		.addNumberColumn({ name:"vendorCreditLimit", dataIndex:"vendorCreditLimit", hidden:true, decimals:2})
+		.addNumberColumn({ name:"vendorCreditLimit", dataIndex:"vendorCreditLimit", hidden:true, decimals:6})
 		.addTextColumn({ name:"vendorPaymentMethod", dataIndex:"vendorPaymentMethod", hidden:true, width:120})
 		.addTextColumn({ name:"vendorPaymentTerm", dataIndex:"vendorPaymentTerm", hidden:true, width:200})
 		.addDefaults();
@@ -157,7 +157,7 @@ Ext.define(Dnet.ns.md + "BpAccount_Dc$Edit" , {
 			filterFieldMapping: [{lovField:"active", value: "true"}, {lovField:"category", value: "payment-in"} ]})
 		.addLov({name:"customerPaymentTerm", dataIndex:"customerPaymentTerm", _enableFn_:this._cust_fld_enabled_, xtype:"md_PaymentTerms_Lov",
 			retFieldMapping: [{lovField:"id", dsField: "customerPaymentTermId"} ]})
-		.addNumberField({name:"customerCreditLimit", dataIndex:"customerCreditLimit", _enableFn_:this._cust_fld_enabled_, decimals:2})
+		.addNumberField({name:"customerCreditLimit", dataIndex:"customerCreditLimit", _enableFn_:this._cust_fld_enabled_, decimals:6})
 		.addBooleanField({ name:"vendor", dataIndex:"vendor",listeners:{
 			change:{scope:this, fn:this.onVendChange}
 		}})
@@ -168,7 +168,7 @@ Ext.define(Dnet.ns.md + "BpAccount_Dc$Edit" , {
 			filterFieldMapping: [{lovField:"active", value: "true"}, {lovField:"category", value: "payment-out"} ]})
 		.addLov({name:"vendorPaymentTerm", dataIndex:"vendorPaymentTerm", _enableFn_:this._vend_fld_enabled_, xtype:"md_PaymentTerms_Lov",
 			retFieldMapping: [{lovField:"id", dsField: "vendorPaymentTermId"} ]})
-		.addNumberField({name:"vendorCreditLimit", dataIndex:"vendorCreditLimit", _enableFn_:this._vend_fld_enabled_, decimals:2})
+		.addNumberField({name:"vendorCreditLimit", dataIndex:"vendorCreditLimit", _enableFn_:this._vend_fld_enabled_, decimals:6})
 		
 		/* =========== containers =========== */
 		.addPanel({ name:"main", autoScroll:true})

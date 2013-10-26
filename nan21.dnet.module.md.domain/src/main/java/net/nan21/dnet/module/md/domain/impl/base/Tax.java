@@ -45,7 +45,7 @@ public class Tax extends AbstractType {
 	public static final String NQ_FIND_BY_NAME = "Tax.findByName";
 
 	@NotNull
-	@Column(name = "RATE", nullable = false, precision = 19, scale = 6)
+	@Column(name = "RATE", nullable = false, precision = 21, scale = 6)
 	private BigDecimal rate;
 
 	@NotNull

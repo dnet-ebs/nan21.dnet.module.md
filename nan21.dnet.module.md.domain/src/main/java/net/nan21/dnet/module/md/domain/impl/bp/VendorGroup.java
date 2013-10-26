@@ -49,7 +49,7 @@ public class VendorGroup extends AbstractTypeWithCode {
 	 */
 	public static final String NQ_FIND_BY_NAME = "VendorGroup.findByName";
 
-	@Column(name = "CREDITLIMIT", precision = 18, scale = 2)
+	@Column(name = "CREDITLIMIT", precision = 21, scale = 6)
 	private BigDecimal creditLimit;
 
 	@ManyToOne(fetch = FetchType.LAZY, targetEntity = DocType.class)

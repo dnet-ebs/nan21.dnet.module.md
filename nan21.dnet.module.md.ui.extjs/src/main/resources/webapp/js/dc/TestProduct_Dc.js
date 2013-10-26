@@ -93,7 +93,7 @@ Ext.define(Dnet.ns.md + "TestProduct_Dc$List" , {
 		.addBooleanColumn({ name:"storable", dataIndex:"storable", width:60})
 		.addTextColumn({ name:"uom", dataIndex:"uom", width:120})
 		.addTextColumn({ name:"attributeSet", dataIndex:"attributeSet", width:120})
-		.addNumberColumn({ name:"weight", dataIndex:"weight", decimals:2})
+		.addNumberColumn({ name:"weight", dataIndex:"weight", decimals:6})
 		.addTextColumn({ name:"weightUomId", dataIndex:"weightUomId", hidden:true, width:100})
 		.addTextColumn({ name:"weightUom", dataIndex:"weightUom", width:120})
 		.addTextColumn({ name:"iconUrl", dataIndex:"iconUrl", hidden:true, width:100})
@@ -123,12 +123,12 @@ Ext.define(Dnet.ns.md + "TestProduct_Dc$EditList" , {
 				retFieldMapping: [{lovField:"id", dsField: "uomId"} ]}})
 		.addTextColumn({name:"attributeSet", dataIndex:"attributeSet", width:120, caseRestriction:"uppercase"})
 		.addTextColumn({name:"manufacturerProductNo", dataIndex:"manufacturerProductNo", hidden:true, width:200})
-		.addNumberColumn({name:"weight", dataIndex:"weight", align:"right", decimals:2 })
+		.addNumberColumn({name:"weight", dataIndex:"weight", align:"right", decimals:6 })
 		.addTextColumn({name:"weightUomId", dataIndex:"weightUomId", hidden:true, width:100})
 		.addTextColumn({name:"weightUom", dataIndex:"weightUom", width:120, caseRestriction:"uppercase"})
-		.addNumberColumn({name:"dimWidth", dataIndex:"dimWidth", hidden:true, align:"right", decimals:2 })
-		.addNumberColumn({name:"dimHeight", dataIndex:"dimHeight", hidden:true, align:"right", decimals:2 })
-		.addNumberColumn({name:"dimDepth", dataIndex:"dimDepth", hidden:true, align:"right", decimals:2 })
+		.addNumberColumn({name:"dimWidth", dataIndex:"dimWidth", hidden:true, align:"right", decimals:6 })
+		.addNumberColumn({name:"dimHeight", dataIndex:"dimHeight", hidden:true, align:"right", decimals:6 })
+		.addNumberColumn({name:"dimDepth", dataIndex:"dimDepth", hidden:true, align:"right", decimals:6 })
 		.addTextColumn({name:"dimUomId", dataIndex:"dimUomId", hidden:true, width:100})
 		.addTextColumn({name:"dimUom", dataIndex:"dimUom", hidden:true, width:120, caseRestriction:"uppercase"})
 		.addTextColumn({name:"iconUrl", dataIndex:"iconUrl", hidden:true, width:100})
@@ -161,7 +161,7 @@ Ext.define(Dnet.ns.md + "TestProduct_Dc$Edit" , {
 		.addLov({name:"uom", dataIndex:"uom", allowBlank:false, xtype:"bd_Uoms_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "uomId"} ]})
 		.addBooleanField({ name:"storable", dataIndex:"storable"})
-		.addNumberField({name:"weight", dataIndex:"weight", decimals:2})
+		.addNumberField({name:"weight", dataIndex:"weight", decimals:6})
 		.addLov({name:"weightUom", dataIndex:"weightUom", xtype:"bd_UomsMass_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "weightUomId"} ]})
 		.addTextField({ name:"iconUrl", dataIndex:"iconUrl"})
@@ -212,7 +212,7 @@ Ext.define(Dnet.ns.md + "TestProduct_Dc$EditPG" , {
 				editor:{_fqn_:Dnet.ns.bd + "Uoms_Lov" , selectOnFocus:true, allowBlank:false,
 					retFieldMapping: [{lovField:"id", dsField: "uomId"} ]}})
 			.addBooleanField({ name:"storable", dataIndex:"storable"})
-			.addNumberField({name:"weight", dataIndex:"weight", decimals:2})
+			.addNumberField({name:"weight", dataIndex:"weight", decimals:6})
 			.addLov({xtype:"bd_UomsMass_Lov", name:"weightUom", dataIndex:"weightUom", caseRestriction:"uppercase",
 				editor:{_fqn_:Dnet.ns.bd + "UomsMass_Lov" , selectOnFocus:true,
 					retFieldMapping: [{lovField:"id", dsField: "weightUomId"} ]}})

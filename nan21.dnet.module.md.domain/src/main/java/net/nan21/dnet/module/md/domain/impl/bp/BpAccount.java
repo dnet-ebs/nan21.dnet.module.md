@@ -62,11 +62,11 @@ public class BpAccount extends AbstractAuditable {
 	private Boolean vendor;
 
 	/** Credit limit as customer. Overrides customer-group level value */
-	@Column(name = "CUSTCREDITLIMIT", precision = 18, scale = 2)
+	@Column(name = "CUSTCREDITLIMIT", precision = 21, scale = 6)
 	private BigDecimal custCreditLimit;
 
 	/** Credit limit as vendor. Overrides vendor-group level value */
-	@Column(name = "VENDCREDITLIMIT", precision = 18, scale = 2)
+	@Column(name = "VENDCREDITLIMIT", precision = 21, scale = 6)
 	private BigDecimal vendCreditLimit;
 
 	@Column(name = "ANALITICSEGMENT", length = 32)

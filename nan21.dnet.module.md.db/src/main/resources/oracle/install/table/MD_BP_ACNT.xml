@@ -20,7 +20,7 @@
 				<constraints nullable="false"/>
 			</column>
 			<column name="CUSTANALITICSEGMENT" type="varchar2(32)"/>
-			<column name="CUSTCREDITLIMIT" type="number(18,2)"/>
+			<column name="CUSTCREDITLIMIT" type="number(21,6)"/>
 			<column name="CUSTOMER" type="number(1)">
 				<constraints nullable="false"/>
 			</column>
@@ -38,7 +38,7 @@
 				<constraints nullable="false"/>
 			</column>
 			<column name="VENDANALITICSEGMENT" type="varchar2(32)"/>
-			<column name="VENDCREDITLIMIT" type="number(18,2)"/>
+			<column name="VENDCREDITLIMIT" type="number(21,6)"/>
 			<column name="VENDOR" type="number(1)">
 				<constraints nullable="false"/>
 			</column>
