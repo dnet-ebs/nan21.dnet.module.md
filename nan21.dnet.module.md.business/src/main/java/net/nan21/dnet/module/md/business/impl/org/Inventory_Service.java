@@ -38,13 +38,50 @@ public class Inventory_Service extends AbstractEntityService<Inventory>
 	/**
 	 * Find by unique key
 	 */
-	public Inventory findByName(String name) {
+	public Inventory findByCode(Org org, String code) {
+		return (Inventory) this
+				.getEntityManager()
+				.createNamedQuery(Inventory.NQ_FIND_BY_CODE)
+				.setParameter("clientId",
+						Session.user.get().getClient().getId())
+				.setParameter("org", org).setParameter("code", code)
+				.getSingleResult();
+	}
+	/**
+	 * Find by unique key
+	 */
+	public Inventory findByCode(Long orgId, String code) {
+		return (Inventory) this
+				.getEntityManager()
+				.createNamedQuery(Inventory.NQ_FIND_BY_CODE_PRIMITIVE)
+				.setParameter("clientId",
+						Session.user.get().getClient().getId())
+				.setParameter("orgId", orgId).setParameter("code", code)
+				.getSingleResult();
+	}
+	/**
+	 * Find by unique key
+	 */
+	public Inventory findByName(Org org, String name) {
 		return (Inventory) this
 				.getEntityManager()
 				.createNamedQuery(Inventory.NQ_FIND_BY_NAME)
 				.setParameter("clientId",
 						Session.user.get().getClient().getId())
-				.setParameter("name", name).getSingleResult();
+				.setParameter("org", org).setParameter("name", name)
+				.getSingleResult();
+	}
+	/**
+	 * Find by unique key
+	 */
+	public Inventory findByName(Long orgId, String name) {
+		return (Inventory) this
+				.getEntityManager()
+				.createNamedQuery(Inventory.NQ_FIND_BY_NAME_PRIMITIVE)
+				.setParameter("clientId",
+						Session.user.get().getClient().getId())
+				.setParameter("orgId", orgId).setParameter("name", name)
+				.getSingleResult();
 	}
 	/**
 	 * Find by reference: org

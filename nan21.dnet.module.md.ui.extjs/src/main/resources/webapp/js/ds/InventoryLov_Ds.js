@@ -9,8 +9,10 @@ Ext.define(Dnet.ns.md + "InventoryLov_Ds", {
 	
 	fields: [
 		{name:"orgId", type:"string"},
+		{name:"org", type:"string"},
 		{name:"id", type:"string"},
 		{name:"clientId", type:"string"},
+		{name:"code", type:"string"},
 		{name:"name", type:"string"},
 		{name:"description", type:"string"},
 		{name:"active", type:"boolean"},

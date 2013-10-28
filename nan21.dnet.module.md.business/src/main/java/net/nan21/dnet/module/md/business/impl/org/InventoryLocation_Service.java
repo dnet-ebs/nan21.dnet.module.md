@@ -41,12 +41,49 @@ public class InventoryLocation_Service
 	/**
 	 * Find by unique key
 	 */
-	public InventoryLocation findByName(String name) {
+	public InventoryLocation findByCode(Inventory inventory, String code) {
+		return (InventoryLocation) this
+				.getEntityManager()
+				.createNamedQuery(InventoryLocation.NQ_FIND_BY_CODE)
+				.setParameter("clientId",
+						Session.user.get().getClient().getId())
+				.setParameter("inventory", inventory)
+				.setParameter("code", code).getSingleResult();
+	}
+	/**
+	 * Find by unique key
+	 */
+	public InventoryLocation findByCode(Long inventoryId, String code) {
+		return (InventoryLocation) this
+				.getEntityManager()
+				.createNamedQuery(InventoryLocation.NQ_FIND_BY_CODE_PRIMITIVE)
+				.setParameter("clientId",
+						Session.user.get().getClient().getId())
+				.setParameter("inventoryId", inventoryId)
+				.setParameter("code", code).getSingleResult();
+	}
+	/**
+	 * Find by unique key
+	 */
+	public InventoryLocation findByName(Inventory inventory, String name) {
 		return (InventoryLocation) this
 				.getEntityManager()
 				.createNamedQuery(InventoryLocation.NQ_FIND_BY_NAME)
 				.setParameter("clientId",
 						Session.user.get().getClient().getId())
+				.setParameter("inventory", inventory)
+				.setParameter("name", name).getSingleResult();
+	}
+	/**
+	 * Find by unique key
+	 */
+	public InventoryLocation findByName(Long inventoryId, String name) {
+		return (InventoryLocation) this
+				.getEntityManager()
+				.createNamedQuery(InventoryLocation.NQ_FIND_BY_NAME_PRIMITIVE)
+				.setParameter("clientId",
+						Session.user.get().getClient().getId())
+				.setParameter("inventoryId", inventoryId)
 				.setParameter("name", name).getSingleResult();
 	}
 	/**

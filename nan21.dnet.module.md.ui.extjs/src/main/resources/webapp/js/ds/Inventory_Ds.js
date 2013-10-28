@@ -13,14 +13,14 @@ Ext.define(Dnet.ns.md + "Inventory_Ds", {
 	
 	fields: [
 		{name:"orgId", type:"string"},
-		{name:"orgCode", type:"string"},
+		{name:"org", type:"string"},
 		{name:"orgName", type:"string"},
 		{name:"id", type:"string"},
+		{name:"code", type:"string"},
 		{name:"name", type:"string"},
 		{name:"description", type:"string"},
 		{name:"notes", type:"string"},
 		{name:"active", type:"boolean"},
-		{name:"clientId", type:"string"},
 		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"modifiedAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"createdBy", type:"string"},

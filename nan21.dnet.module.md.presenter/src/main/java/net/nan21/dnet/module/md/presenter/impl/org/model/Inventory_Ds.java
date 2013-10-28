@@ -11,23 +11,23 @@ import net.nan21.dnet.core.api.annotation.Param;
 import net.nan21.dnet.core.api.annotation.RefLookup;
 import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
-import net.nan21.dnet.core.presenter.model.AbstractTypeDs;
+import net.nan21.dnet.core.presenter.model.AbstractTypeWithCodeDs;
 import net.nan21.dnet.module.md.domain.impl.org.Inventory;
 import net.nan21.dnet.module.md.domain.impl.org.Org;
 
-@Ds(entity = Inventory.class, sort = {@SortField(field = Inventory_Ds.f_name)})
-@RefLookups({@RefLookup(refId = Inventory_Ds.f_orgId, namedQuery = Org.NQ_FIND_BY_CODE, params = {@Param(name = "code", field = Inventory_Ds.f_orgCode)})})
-public class Inventory_Ds extends AbstractTypeDs<Inventory> {
+@Ds(entity = Inventory.class, sort = {@SortField(field = Inventory_Ds.f_code)})
+@RefLookups({@RefLookup(refId = Inventory_Ds.f_orgId, namedQuery = Org.NQ_FIND_BY_CODE, params = {@Param(name = "code", field = Inventory_Ds.f_org)})})
+public class Inventory_Ds extends AbstractTypeWithCodeDs<Inventory> {
 
 	public static final String f_orgId = "orgId";
-	public static final String f_orgCode = "orgCode";
+	public static final String f_org = "org";
 	public static final String f_orgName = "orgName";
 
 	@DsField(join = "left", path = "org.id")
 	private String orgId;
 
 	@DsField(join = "left", path = "org.code")
-	private String orgCode;
+	private String org;
 
 	@DsField(join = "left", path = "org.name")
 	private String orgName;
@@ -48,12 +48,12 @@ public class Inventory_Ds extends AbstractTypeDs<Inventory> {
 		this.orgId = orgId;
 	}
 
-	public String getOrgCode() {
-		return this.orgCode;
+	public String getOrg() {
+		return this.org;
 	}
 
-	public void setOrgCode(String orgCode) {
-		this.orgCode = orgCode;
+	public void setOrg(String org) {
+		this.org = org;
 	}
 
 	public String getOrgName() {

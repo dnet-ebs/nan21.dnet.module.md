@@ -19,7 +19,22 @@ public interface IInventoryService extends IEntityService<Inventory> {
 	/**
 	 * Find by unique key
 	 */
-	public Inventory findByName(String name);
+	public Inventory findByCode(Org org, String code);
+
+	/**
+	 * Find by unique key
+	 */
+	public Inventory findByCode(Long orgId, String code);
+
+	/**
+	 * Find by unique key
+	 */
+	public Inventory findByName(Org org, String name);
+
+	/**
+	 * Find by unique key
+	 */
+	public Inventory findByName(Long orgId, String name);
 
 	/**
 	 * Find by reference: org

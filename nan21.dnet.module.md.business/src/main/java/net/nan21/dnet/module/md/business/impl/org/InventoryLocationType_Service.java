@@ -38,6 +38,17 @@ public class InventoryLocationType_Service
 	/**
 	 * Find by unique key
 	 */
+	public InventoryLocationType findByCode(String code) {
+		return (InventoryLocationType) this
+				.getEntityManager()
+				.createNamedQuery(InventoryLocationType.NQ_FIND_BY_CODE)
+				.setParameter("clientId",
+						Session.user.get().getClient().getId())
+				.setParameter("code", code).getSingleResult();
+	}
+	/**
+	 * Find by unique key
+	 */
 	public InventoryLocationType findByName(String name) {
 		return (InventoryLocationType) this
 				.getEntityManager()

@@ -19,5 +19,10 @@ public interface IInventoryLocationTypeService
 	/**
 	 * Find by unique key
 	 */
+	public InventoryLocationType findByCode(String code);
+
+	/**
+	 * Find by unique key
+	 */
 	public InventoryLocationType findByName(String name);
 }

@@ -11,6 +11,7 @@ Ext.define(Dnet.ns.md + "InventoryLocationLov_Ds", {
 		{name:"subInventoryId", type:"string"},
 		{name:"id", type:"string"},
 		{name:"clientId", type:"string"},
+		{name:"code", type:"string"},
 		{name:"name", type:"string"},
 		{name:"description", type:"string"},
 		{name:"active", type:"boolean"},

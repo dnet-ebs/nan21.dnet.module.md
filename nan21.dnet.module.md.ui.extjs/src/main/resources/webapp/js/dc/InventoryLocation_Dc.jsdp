@@ -1,0 +1,6 @@
+[
+	"nan21.dnet.module.md.ui.extjs/ds/InventoryLocation_Ds", 
+	"nan21.dnet.module.md.ui.extjs/lov/InventoryLocations_Lov", 
+	"nan21.dnet.module.md.ui.extjs/lov/InventoryLocationTypes_Lov", 
+	"nan21.dnet.module.md.ui.extjs/lov/Inventories_Lov"
+]

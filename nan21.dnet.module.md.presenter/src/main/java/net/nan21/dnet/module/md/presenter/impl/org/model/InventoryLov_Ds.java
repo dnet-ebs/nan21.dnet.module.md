@@ -8,16 +8,20 @@ package net.nan21.dnet.module.md.presenter.impl.org.model;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
 import net.nan21.dnet.core.api.annotation.SortField;
-import net.nan21.dnet.core.presenter.model.AbstractTypeLov;
+import net.nan21.dnet.core.presenter.model.AbstractTypeWithCodeLov;
 import net.nan21.dnet.module.md.domain.impl.org.Inventory;
 
-@Ds(entity = Inventory.class, sort = {@SortField(field = InventoryLov_Ds.f_name)})
-public class InventoryLov_Ds extends AbstractTypeLov<Inventory> {
+@Ds(entity = Inventory.class, sort = {@SortField(field = InventoryLov_Ds.f_code)})
+public class InventoryLov_Ds extends AbstractTypeWithCodeLov<Inventory> {
 
 	public static final String f_orgId = "orgId";
+	public static final String f_org = "org";
 
 	@DsField(join = "left", path = "org.id")
 	private String orgId;
+
+	@DsField(join = "left", path = "org.code")
+	private String org;
 
 	public InventoryLov_Ds() {
 		super();
@@ -33,5 +37,13 @@ public class InventoryLov_Ds extends AbstractTypeLov<Inventory> {
 
 	public void setOrgId(String orgId) {
 		this.orgId = orgId;
+	}
+
+	public String getOrg() {
+		return this.org;
+	}
+
+	public void setOrg(String org) {
+		this.org = org;
 	}
 }

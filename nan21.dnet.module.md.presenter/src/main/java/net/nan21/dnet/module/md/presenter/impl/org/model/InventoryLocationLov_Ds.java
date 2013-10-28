@@ -8,11 +8,13 @@ package net.nan21.dnet.module.md.presenter.impl.org.model;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
 import net.nan21.dnet.core.api.annotation.SortField;
-import net.nan21.dnet.core.presenter.model.AbstractTypeLov;
+import net.nan21.dnet.core.presenter.model.AbstractTypeWithCodeLov;
 import net.nan21.dnet.module.md.domain.impl.org.InventoryLocation;
 
-@Ds(entity = InventoryLocation.class, sort = {@SortField(field = InventoryLocationLov_Ds.f_name)})
-public class InventoryLocationLov_Ds extends AbstractTypeLov<InventoryLocation> {
+@Ds(entity = InventoryLocation.class, sort = {@SortField(field = InventoryLocationLov_Ds.f_code)})
+public class InventoryLocationLov_Ds
+		extends
+			AbstractTypeWithCodeLov<InventoryLocation> {
 
 	public static final String f_subInventoryId = "subInventoryId";
 

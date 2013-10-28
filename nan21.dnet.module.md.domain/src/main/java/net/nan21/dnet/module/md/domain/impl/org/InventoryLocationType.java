@@ -12,22 +12,31 @@ import javax.persistence.PrePersist;
 import javax.persistence.QueryHint;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-import net.nan21.dnet.core.domain.impl.AbstractType;
+import net.nan21.dnet.core.domain.impl.AbstractTypeWithCode;
 import org.eclipse.persistence.config.HintValues;
 import org.eclipse.persistence.config.QueryHints;
 
 /**
  * 
  */
-@NamedQueries({@NamedQuery(name = InventoryLocationType.NQ_FIND_BY_NAME, query = "SELECT e FROM InventoryLocationType e WHERE e.clientId = :clientId and e.name = :name", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({
+		@NamedQuery(name = InventoryLocationType.NQ_FIND_BY_CODE, query = "SELECT e FROM InventoryLocationType e WHERE e.clientId = :clientId and e.code = :code", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = InventoryLocationType.NQ_FIND_BY_NAME, query = "SELECT e FROM InventoryLocationType e WHERE e.clientId = :clientId and e.name = :name", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(name = InventoryLocationType.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = InventoryLocationType.TABLE_NAME
-		+ "_UK1", columnNames = {"CLIENTID", "NAME"})})
-public class InventoryLocationType extends AbstractType {
+@Table(name = InventoryLocationType.TABLE_NAME, uniqueConstraints = {
+		@UniqueConstraint(name = InventoryLocationType.TABLE_NAME + "_UK1", columnNames = {
+				"CLIENTID", "CODE"}),
+		@UniqueConstraint(name = InventoryLocationType.TABLE_NAME + "_UK2", columnNames = {
+				"CLIENTID", "NAME"})})
+public class InventoryLocationType extends AbstractTypeWithCode {
 
 	public static final String TABLE_NAME = "MD_IVTLOC_TYPE";
 
 	private static final long serialVersionUID = -8865917134914502125L;
+	/**
+	 * Named query find by unique key: Code.
+	 */
+	public static final String NQ_FIND_BY_CODE = "InventoryLocationType.findByCode";
 	/**
 	 * Named query find by unique key: Name.
 	 */

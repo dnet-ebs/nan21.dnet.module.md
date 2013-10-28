@@ -72,7 +72,7 @@ Ext.define(Dnet.ns.md + "ProductCategory_Dc$EditList" , {
 			editor:{xtype:"bd_AttributeSets_Lov", selectOnFocus:true, caseRestriction:"uppercase",
 				retFieldMapping: [{lovField:"id", dsField: "attributeSetId"} ],
 				filterFieldMapping: [{lovField:"active", value: "true"} ]}})
-		.addTextColumn({name:"iconUrl", dataIndex:"iconUrl", hidden:true, width:200})
+		.addTextColumn({name:"iconUrl", dataIndex:"iconUrl", width:100})
 		.addBooleanColumn({name:"folder", dataIndex:"folder"})
 		.addBooleanColumn({name:"active", dataIndex:"active"})
 		.addDefaults();

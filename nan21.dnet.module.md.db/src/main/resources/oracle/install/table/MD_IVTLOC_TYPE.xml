@@ -12,6 +12,9 @@
 			<column name="CLIENTID" type="varchar2(64)">
 				<constraints nullable="false"/>
 			</column>
+			<column name="CODE" type="varchar2(64)">
+				<constraints nullable="false"/>
+			</column>
 			<column name="CREATEDAT" type="DATE">
 				<constraints nullable="false"/>
 			</column>
@@ -49,6 +52,13 @@
 	<changeSet author="amathe" id="UK-1">
 		<addUniqueConstraint
 			constraintName="UK_MD_IVTLOC_TYPE1"
+			tableName="MD_IVTLOC_TYPE"
+			columnNames="CLIENTID,CODE"/>
+	</changeSet>
+	
+	<changeSet author="amathe" id="UK-2">
+		<addUniqueConstraint
+			constraintName="UK_MD_IVTLOC_TYPE2"
 			tableName="MD_IVTLOC_TYPE"
 			columnNames="CLIENTID,NAME"/>
 	</changeSet>

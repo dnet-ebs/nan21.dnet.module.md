@@ -25,11 +25,11 @@
 	<bean id="OrgHierarchyItem" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.md.business.impl.org.OrgHierarchyItem_Service"/>				
 
-	<bean id="Inventory" scope="singleton" lazy-init="true"
-		class="net.nan21.dnet.module.md.business.impl.org.Inventory_Service"/>				
-
 	<bean id="InventoryLocationType" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.md.business.impl.org.InventoryLocationType_Service"/>				
+
+	<bean id="Inventory" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.business.impl.org.Inventory_Service"/>				
 
 	<bean id="InventoryLocation" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.md.business.impl.org.InventoryLocation_Service"/>				

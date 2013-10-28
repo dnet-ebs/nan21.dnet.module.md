@@ -22,7 +22,22 @@ public interface IInventoryLocationService
 	/**
 	 * Find by unique key
 	 */
-	public InventoryLocation findByName(String name);
+	public InventoryLocation findByCode(Inventory inventory, String code);
+
+	/**
+	 * Find by unique key
+	 */
+	public InventoryLocation findByCode(Long inventoryId, String code);
+
+	/**
+	 * Find by unique key
+	 */
+	public InventoryLocation findByName(Inventory inventory, String name);
+
+	/**
+	 * Find by unique key
+	 */
+	public InventoryLocation findByName(Long inventoryId, String name);
 
 	/**
 	 * Find by reference: inventory
