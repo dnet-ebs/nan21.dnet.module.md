@@ -13,10 +13,13 @@ Ext.define(Dnet.ns.md + "Product_Ui" , {
 	_defineDcs_: function() {
 		this._getBuilder_()	
 		.addDc("prod", Ext.create(Dnet.ns.md + "Product_Dc" ,{}))	
+		.addDc("subst", Ext.create(Dnet.ns.md + "ProductSubstitute_Dc" ,{multiEdit:true}))	
 		.addDc("attr", Ext.create(Dnet.ns.bd + "AttributeValue_Dc" ,{multiEdit:true}))	
 		.addDc("atch", Ext.create(Dnet.ns.bd + "Attachment_Dc" ,{}))	
 		.addDc("classific", Ext.create(Dnet.ns.bd + "Classification_Dc" ,{multiEdit:true}))
-		.linkDc("attr", "prod",{fields:[
+		.linkDc("subst", "prod",{fields:[
+			{childField:"productId", parentField:"id"}, {childField:"product", parentField:"code", noFilter:true}]}
+		).linkDc("attr", "prod",{fields:[
 			{childField:"targetRefid", parentField:"id"}, {childField:"attributeSetId", parentField:"attributeSetId"}, {childField:"attributeSet", parentField:"attributeSet", noFilter:true}]}
 		).linkDc("atch", "prod",{fields:[
 			{childField:"targetRefid", parentField:"refid"}, {childField:"targetAlias", parentField:"entityAlias"}, {childField:"targetType", value:"N/A"}]}
@@ -35,6 +38,7 @@ Ext.define(Dnet.ns.md + "Product_Ui" , {
 		.addDcGridView("prod", {name:"prodList", xtype:"md_Product_Dc$List"})
 		.addDcFormView("prod", {name:"prodEdit", xtype:"md_Product_Dc$Edit"})
 		.addDcFormView("prod", {name:"prodEditInfo", _hasTitle_:true, xtype:"md_Product_Dc$EditInfo", _acquireFocusInsert_: false, _acquireFocusUpdate_: false})
+		.addDcEditGridView("subst", {name:"substEditList", _hasTitle_:true, xtype:"md_ProductSubstitute_Dc$CtxEditList", frame:true})
 		.addDcEditGridView("classific", {name:"classificEdit", _hasTitle_:true, xtype:"bd_Classification_Dc$EditList", frame:true})
 		.addDcGridView("atch", {name:"atchList", _hasTitle_:true, xtype:"bd_Attachment_Dc$List"})
 		.addDcFormView("atch", {name:"atchCreate", xtype:"bd_Attachment_Dc$Create"})
@@ -57,9 +61,10 @@ Ext.define(Dnet.ns.md + "Product_Ui" , {
 		.addChildrenTo("main", ["canvas1", "canvas2"])
 		.addChildrenTo("canvas1", ["prodFilter", "prodList"], ["north", "center"])
 		.addChildrenTo("canvas2", ["prodEdit", "prodDetailsTab"], ["north", "center"])
-		.addChildrenTo("prodDetailsTab", ["prodEditInfo", "attrPanel", "classificEdit", "atchList"])
+		.addChildrenTo("prodDetailsTab", ["prodEditInfo", "attrPanel", "classificEdit", "substEditList", "atchList"])
 		.addToolbarTo("canvas1", "tlbProdList")
 		.addToolbarTo("canvas2", "tlbProdEdit")
+		.addToolbarTo("substEditList", "tlbSusbst")
 		.addToolbarTo("attrPanel", "tlbAttrEditList")
 		.addToolbarTo("atchList", "tlbAtchList")
 		.addToolbarTo("classificEdit", "tlbClassific");
@@ -78,6 +83,12 @@ Ext.define(Dnet.ns.md + "Product_Ui" , {
 		.beginToolbar("tlbProdEdit", {dc: "prod"})
 			.addTitle().addSeparator().addSeparator()
 			.addBack().addSave().addNew().addCopy().addCancel().addPrevRec().addNextRec()
+			.addReports()
+		.end()
+		.beginToolbar("tlbSusbst", {dc: "subst"})
+			.addTitle().addSeparator().addSeparator()
+			.addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
+			.addSeparator().addAutoLoad()
 			.addReports()
 		.end()
 		.beginToolbar("tlbAttrEditList", {dc: "attr"})

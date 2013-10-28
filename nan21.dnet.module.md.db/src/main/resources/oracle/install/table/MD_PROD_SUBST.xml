@@ -32,10 +32,10 @@
 				<constraints nullable="false"/>
 			</column>
 			<column name="VERSION" type="number(10)"/>
-			<column name="EQUIVALENCE_ID" type="varchar2(64)">
+			<column name="PRODUCT_ID" type="varchar2(64)">
 				<constraints nullable="false"/>
 			</column>
-			<column name="REFPRODUCT_ID" type="varchar2(64)">
+			<column name="SUBSTITUTE_ID" type="varchar2(64)">
 				<constraints nullable="false"/>
 			</column>
 		</createTable>
@@ -46,6 +46,13 @@
 			constraintName="PK_MD_PROD_SUBST"
 			tableName="MD_PROD_SUBST"
 			columnNames="ID"/>
+	</changeSet>
+	
+	<changeSet author="amathe" id="UK-1">
+		<addUniqueConstraint
+			constraintName="UK_MD_PROD_SUBST1"
+			tableName="MD_PROD_SUBST"
+			columnNames="CLIENTID,PRODUCT_ID,SUBSTITUTE_ID"/>
 	</changeSet>
 
 </databaseChangeLog>

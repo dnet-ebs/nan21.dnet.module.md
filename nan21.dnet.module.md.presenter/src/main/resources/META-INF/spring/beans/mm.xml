@@ -71,6 +71,14 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
+	<!-- ==================== ProductSubstitute ==================== -->
+		
+	<bean id="ProductSubstitute_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.mm.model.ProductSubstitute_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.mm.ProductSubstitute"/>
+	</bean>
+	
 	<!-- ==================== ProductAccountType ==================== -->
 		
 	<bean id="ProductAccountType_Ds" scope="singleton" lazy-init="true"

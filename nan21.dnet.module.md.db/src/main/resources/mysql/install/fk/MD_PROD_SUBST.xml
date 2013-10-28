@@ -6,14 +6,14 @@
 <changeSet author="amathe" id="FK-1">
 	<addForeignKeyConstraint constraintName="FK_MD_PROD_SUBST1" 
 		baseTableName="MD_PROD_SUBST"
-		baseColumnNames="REFPRODUCT_ID"
+		baseColumnNames="PRODUCT_ID"
 		referencedTableName="MD_PROD" 
 		referencedColumnNames="ID"/>
 </changeSet>
 <changeSet author="amathe" id="FK-2">
 	<addForeignKeyConstraint constraintName="FK_MD_PROD_SUBST2" 
 		baseTableName="MD_PROD_SUBST"
-		baseColumnNames="EQUIVALENCE_ID"
+		baseColumnNames="SUBSTITUTE_ID"
 		referencedTableName="MD_PROD" 
 		referencedColumnNames="ID"/>
 </changeSet>

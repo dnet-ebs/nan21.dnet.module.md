@@ -19,22 +19,32 @@ public interface IProductSubstituteService
 			IEntityService<ProductSubstitute> {
 
 	/**
-	 * Find by reference: refProduct
+	 * Find by unique key
 	 */
-	public List<ProductSubstitute> findByRefProduct(Product refProduct);
+	public ProductSubstitute findBySubst(Product product, Product substitute);
 
 	/**
-	 * Find by ID of reference: refProduct.id
+	 * Find by unique key
 	 */
-	public List<ProductSubstitute> findByRefProductId(String refProductId);
+	public ProductSubstitute findBySubst(Long productId, Long substituteId);
 
 	/**
-	 * Find by reference: equivalence
+	 * Find by reference: product
 	 */
-	public List<ProductSubstitute> findByEquivalence(Product equivalence);
+	public List<ProductSubstitute> findByProduct(Product product);
 
 	/**
-	 * Find by ID of reference: equivalence.id
+	 * Find by ID of reference: product.id
 	 */
-	public List<ProductSubstitute> findByEquivalenceId(String equivalenceId);
+	public List<ProductSubstitute> findByProductId(String productId);
+
+	/**
+	 * Find by reference: substitute
+	 */
+	public List<ProductSubstitute> findBySubstitute(Product substitute);
+
+	/**
+	 * Find by ID of reference: substitute.id
+	 */
+	public List<ProductSubstitute> findBySubstituteId(String substituteId);
 }

@@ -38,41 +38,65 @@ public class ProductSubstitute_Service
 		return ProductSubstitute.class;
 	}
 	/**
-	 * Find by reference: refProduct
+	 * Find by unique key
 	 */
-	public List<ProductSubstitute> findByRefProduct(Product refProduct) {
-		return this.findByRefProductId(refProduct.getId());
+	public ProductSubstitute findBySubst(Product product, Product substitute) {
+		return (ProductSubstitute) this
+				.getEntityManager()
+				.createNamedQuery(ProductSubstitute.NQ_FIND_BY_SUBST)
+				.setParameter("clientId",
+						Session.user.get().getClient().getId())
+				.setParameter("product", product)
+				.setParameter("substitute", substitute).getSingleResult();
 	}
 	/**
-	 * Find by ID of reference: refProduct.id
+	 * Find by unique key
 	 */
-	public List<ProductSubstitute> findByRefProductId(String refProductId) {
+	public ProductSubstitute findBySubst(Long productId, Long substituteId) {
+		return (ProductSubstitute) this
+				.getEntityManager()
+				.createNamedQuery(ProductSubstitute.NQ_FIND_BY_SUBST_PRIMITIVE)
+				.setParameter("clientId",
+						Session.user.get().getClient().getId())
+				.setParameter("productId", productId)
+				.setParameter("substituteId", substituteId).getSingleResult();
+	}
+	/**
+	 * Find by reference: product
+	 */
+	public List<ProductSubstitute> findByProduct(Product product) {
+		return this.findByProductId(product.getId());
+	}
+	/**
+	 * Find by ID of reference: product.id
+	 */
+	public List<ProductSubstitute> findByProductId(String productId) {
 		return (List<ProductSubstitute>) this
 				.getEntityManager()
 				.createQuery(
-						"select e from ProductSubstitute e where e.clientId = :clientId and e.refProduct.id = :refProductId",
+						"select e from ProductSubstitute e where e.clientId = :clientId and e.product.id = :productId",
 						ProductSubstitute.class)
 				.setParameter("clientId",
 						Session.user.get().getClient().getId())
-				.setParameter("refProductId", refProductId).getResultList();
+				.setParameter("productId", productId).getResultList();
 	}
 	/**
-	 * Find by reference: equivalence
+	 * Find by reference: substitute
 	 */
-	public List<ProductSubstitute> findByEquivalence(Product equivalence) {
-		return this.findByEquivalenceId(equivalence.getId());
+	public List<ProductSubstitute> findBySubstitute(Product substitute) {
+		return this.findBySubstituteId(substitute.getId());
 	}
 	/**
-	 * Find by ID of reference: equivalence.id
+	 * Find by ID of reference: substitute.id
 	 */
-	public List<ProductSubstitute> findByEquivalenceId(String equivalenceId) {
+	public List<ProductSubstitute> findBySubstituteId(String substituteId) {
 		return (List<ProductSubstitute>) this
 				.getEntityManager()
 				.createQuery(
-						"select e from ProductSubstitute e where e.clientId = :clientId and e.equivalence.id = :equivalenceId",
+						"select e from ProductSubstitute e where e.clientId = :clientId and e.substitute.id = :substituteId",
 						ProductSubstitute.class)
 				.setParameter("clientId",
 						Session.user.get().getClient().getId())
-				.setParameter("equivalenceId", equivalenceId).getResultList();
+				.setParameter("substituteId", substituteId).getResultList();
 	}
 }
