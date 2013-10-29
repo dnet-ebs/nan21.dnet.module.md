@@ -19,6 +19,7 @@ import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import net.nan21.dnet.core.domain.impl.AbstractTypeWithCode;
 import net.nan21.dnet.module.bd.domain.impl.attr.AttributeSet;
+import net.nan21.dnet.module.bd.domain.impl.other.LookupItem;
 import net.nan21.dnet.module.md.domain.impl.mm.ProductCategory;
 import org.eclipse.persistence.config.HintValues;
 import org.eclipse.persistence.config.QueryHints;
@@ -49,10 +50,13 @@ public class ProductCategory extends AbstractTypeWithCode {
 	 */
 	public static final String NQ_FIND_BY_NAME = "ProductCategory.findByName";
 
-	/** Is allowed to link products to this category? */
 	@NotNull
-	@Column(name = "FOLDER", nullable = false)
-	private Boolean folder;
+	@Column(name = "ACCEPTPROD", nullable = false)
+	private Boolean acceptProd;
+
+	@NotNull
+	@Column(name = "ACCEPTCATEG", nullable = false)
+	private Boolean acceptCateg;
 
 	/** Link to an icon which represents this category */
 	@Column(name = "ICONURL", length = 255)
@@ -66,12 +70,32 @@ public class ProductCategory extends AbstractTypeWithCode {
 	@JoinColumn(name = "ATTRIBUTESET_ID", referencedColumnName = "ID")
 	private AttributeSet attributeSet;
 
-	public Boolean getFolder() {
-		return this.folder;
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = LookupItem.class)
+	@JoinColumn(name = "MATERIAL_ID", referencedColumnName = "ID")
+	private LookupItem material;
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = LookupItem.class)
+	@JoinColumn(name = "QUALITY_ID", referencedColumnName = "ID")
+	private LookupItem quality;
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = LookupItem.class)
+	@JoinColumn(name = "SURFACE_ID", referencedColumnName = "ID")
+	private LookupItem surface;
+
+	public Boolean getAcceptProd() {
+		return this.acceptProd;
 	}
 
-	public void setFolder(Boolean folder) {
-		this.folder = folder;
+	public void setAcceptProd(Boolean acceptProd) {
+		this.acceptProd = acceptProd;
+	}
+
+	public Boolean getAcceptCateg() {
+		return this.acceptCateg;
+	}
+
+	public void setAcceptCateg(Boolean acceptCateg) {
+		this.acceptCateg = acceptCateg;
 	}
 
 	public String getIconUrl() {
@@ -104,11 +128,47 @@ public class ProductCategory extends AbstractTypeWithCode {
 		this.attributeSet = attributeSet;
 	}
 
+	public LookupItem getMaterial() {
+		return this.material;
+	}
+
+	public void setMaterial(LookupItem material) {
+		if (material != null) {
+			this.__validate_client_context__(material.getClientId());
+		}
+		this.material = material;
+	}
+
+	public LookupItem getQuality() {
+		return this.quality;
+	}
+
+	public void setQuality(LookupItem quality) {
+		if (quality != null) {
+			this.__validate_client_context__(quality.getClientId());
+		}
+		this.quality = quality;
+	}
+
+	public LookupItem getSurface() {
+		return this.surface;
+	}
+
+	public void setSurface(LookupItem surface) {
+		if (surface != null) {
+			this.__validate_client_context__(surface.getClientId());
+		}
+		this.surface = surface;
+	}
+
 	@PrePersist
 	public void prePersist() {
 		super.prePersist();
-		if (this.folder == null) {
-			this.folder = new Boolean(false);
+		if (this.acceptProd == null) {
+			this.acceptProd = new Boolean(false);
+		}
+		if (this.acceptCateg == null) {
+			this.acceptCateg = new Boolean(false);
 		}
 	}
 }

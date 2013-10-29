@@ -14,6 +14,7 @@ import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.AbstractTypeWithCodeDs;
 import net.nan21.dnet.module.bd.domain.impl.attr.AttributeSet;
+import net.nan21.dnet.module.bd.domain.impl.other.LookupItem;
 import net.nan21.dnet.module.bd.domain.impl.uom.Uom;
 import net.nan21.dnet.module.md.domain.impl.mm.Product;
 import net.nan21.dnet.module.md.domain.impl.mm.ProductCategory;
@@ -27,7 +28,10 @@ import net.nan21.dnet.module.md.domain.impl.mm.ProductManufacturer;
 		@RefLookup(refId = Product_Ds.f_volumeUomId, namedQuery = Uom.NQ_FIND_BY_CODE, params = {@Param(name = "code", field = Product_Ds.f_volumeUom)}),
 		@RefLookup(refId = Product_Ds.f_weightUomId, namedQuery = Uom.NQ_FIND_BY_CODE, params = {@Param(name = "code", field = Product_Ds.f_weightUom)}),
 		@RefLookup(refId = Product_Ds.f_attributeSetId, namedQuery = AttributeSet.NQ_FIND_BY_CODE, params = {@Param(name = "code", field = Product_Ds.f_attributeSet)}),
-		@RefLookup(refId = Product_Ds.f_categoryId, namedQuery = ProductCategory.NQ_FIND_BY_CODE, params = {@Param(name = "code", field = Product_Ds.f_category)})})
+		@RefLookup(refId = Product_Ds.f_categoryId, namedQuery = ProductCategory.NQ_FIND_BY_CODE, params = {@Param(name = "code", field = Product_Ds.f_category)}),
+		@RefLookup(refId = Product_Ds.f_materialId, namedQuery = LookupItem.NQ_FIND_BY_CODE, params = {@Param(name = "type", field = Product_Ds.f_material)}),
+		@RefLookup(refId = Product_Ds.f_qualityId, namedQuery = LookupItem.NQ_FIND_BY_CODE, params = {@Param(name = "type", field = Product_Ds.f_quality)}),
+		@RefLookup(refId = Product_Ds.f_surfaceId, namedQuery = LookupItem.NQ_FIND_BY_CODE, params = {@Param(name = "type", field = Product_Ds.f_surface)})})
 public class Product_Ds extends AbstractTypeWithCodeDs<Product> {
 
 	public static final String f_iconUrl = "iconUrl";
@@ -57,6 +61,12 @@ public class Product_Ds extends AbstractTypeWithCodeDs<Product> {
 	public static final String f_dimUom = "dimUom";
 	public static final String f_manufacturerId = "manufacturerId";
 	public static final String f_manufacturer = "manufacturer";
+	public static final String f_materialId = "materialId";
+	public static final String f_material = "material";
+	public static final String f_qualityId = "qualityId";
+	public static final String f_quality = "quality";
+	public static final String f_surfaceId = "surfaceId";
+	public static final String f_surface = "surface";
 
 	@DsField
 	private String iconUrl;
@@ -138,6 +148,24 @@ public class Product_Ds extends AbstractTypeWithCodeDs<Product> {
 
 	@DsField(join = "left", path = "manufacturer.code")
 	private String manufacturer;
+
+	@DsField(join = "left", path = "material.id")
+	private String materialId;
+
+	@DsField(join = "left", path = "material.code")
+	private String material;
+
+	@DsField(join = "left", path = "quality.id")
+	private String qualityId;
+
+	@DsField(join = "left", path = "quality.code")
+	private String quality;
+
+	@DsField(join = "left", path = "surface.id")
+	private String surfaceId;
+
+	@DsField(join = "left", path = "surface.code")
+	private String surface;
 
 	public Product_Ds() {
 		super();
@@ -361,5 +389,53 @@ public class Product_Ds extends AbstractTypeWithCodeDs<Product> {
 
 	public void setManufacturer(String manufacturer) {
 		this.manufacturer = manufacturer;
+	}
+
+	public String getMaterialId() {
+		return this.materialId;
+	}
+
+	public void setMaterialId(String materialId) {
+		this.materialId = materialId;
+	}
+
+	public String getMaterial() {
+		return this.material;
+	}
+
+	public void setMaterial(String material) {
+		this.material = material;
+	}
+
+	public String getQualityId() {
+		return this.qualityId;
+	}
+
+	public void setQualityId(String qualityId) {
+		this.qualityId = qualityId;
+	}
+
+	public String getQuality() {
+		return this.quality;
+	}
+
+	public void setQuality(String quality) {
+		this.quality = quality;
+	}
+
+	public String getSurfaceId() {
+		return this.surfaceId;
+	}
+
+	public void setSurfaceId(String surfaceId) {
+		this.surfaceId = surfaceId;
+	}
+
+	public String getSurface() {
+		return this.surface;
+	}
+
+	public void setSurface(String surface) {
+		this.surface = surface;
 	}
 }

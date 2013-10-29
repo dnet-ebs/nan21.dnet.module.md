@@ -20,6 +20,7 @@ import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import net.nan21.dnet.core.domain.impl.AbstractTypeWithCode;
 import net.nan21.dnet.module.bd.domain.impl.attr.AttributeSet;
+import net.nan21.dnet.module.bd.domain.impl.other.LookupItem;
 import net.nan21.dnet.module.bd.domain.impl.uom.Uom;
 import net.nan21.dnet.module.md.domain.impl.mm.ProductCategory;
 import net.nan21.dnet.module.md.domain.impl.mm.ProductManufacturer;
@@ -110,6 +111,18 @@ public class Product extends AbstractTypeWithCode {
 	@ManyToOne(fetch = FetchType.LAZY, targetEntity = ProductCategory.class)
 	@JoinColumn(name = "CATEGORY_ID", referencedColumnName = "ID")
 	private ProductCategory category;
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = LookupItem.class)
+	@JoinColumn(name = "MATERIAL_ID", referencedColumnName = "ID")
+	private LookupItem material;
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = LookupItem.class)
+	@JoinColumn(name = "QUALITY_ID", referencedColumnName = "ID")
+	private LookupItem quality;
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = LookupItem.class)
+	@JoinColumn(name = "SURFACE_ID", referencedColumnName = "ID")
+	private LookupItem surface;
 
 	public String getManufacturerProductNo() {
 		return this.manufacturerProductNo;
@@ -258,6 +271,39 @@ public class Product extends AbstractTypeWithCode {
 			this.__validate_client_context__(category.getClientId());
 		}
 		this.category = category;
+	}
+
+	public LookupItem getMaterial() {
+		return this.material;
+	}
+
+	public void setMaterial(LookupItem material) {
+		if (material != null) {
+			this.__validate_client_context__(material.getClientId());
+		}
+		this.material = material;
+	}
+
+	public LookupItem getQuality() {
+		return this.quality;
+	}
+
+	public void setQuality(LookupItem quality) {
+		if (quality != null) {
+			this.__validate_client_context__(quality.getClientId());
+		}
+		this.quality = quality;
+	}
+
+	public LookupItem getSurface() {
+		return this.surface;
+	}
+
+	public void setSurface(LookupItem surface) {
+		if (surface != null) {
+			this.__validate_client_context__(surface.getClientId());
+		}
+		this.surface = surface;
 	}
 
 	@PrePersist

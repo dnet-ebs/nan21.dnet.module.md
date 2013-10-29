@@ -1,3 +1,5 @@
 [
-	"nan21.dnet.module.md.ui.extjs/dc/Org_Dc"
+	"nan21.dnet.module.md.ui.extjs/dc/Org_Dc", 
+	"nan21.dnet.module.bd.ui.extjs/dc/CommunicationMethod_Dc", 
+	"nan21.dnet.module.bd.ui.extjs/dc/Location_Dc"
 ]

@@ -55,6 +55,9 @@
 			<column name="DEFAULTUOM_ID" type="varchar(64)"/>
 			<column name="DIMUOM_ID" type="varchar(64)"/>
 			<column name="MANUFACTURER_ID" type="varchar(64)"/>
+			<column name="MATERIAL_ID" type="varchar(64)"/>
+			<column name="QUALITY_ID" type="varchar(64)"/>
+			<column name="SURFACE_ID" type="varchar(64)"/>
 			<column name="VOLUMEUOM_ID" type="varchar(64)"/>
 			<column name="WEIGHTUOM_ID" type="varchar(64)"/>
 		</createTable>

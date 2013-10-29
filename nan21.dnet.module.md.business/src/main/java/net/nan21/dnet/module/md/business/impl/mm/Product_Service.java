@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
 import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.domain.impl.attr.AttributeSet;
+import net.nan21.dnet.module.bd.domain.impl.other.LookupItem;
 import net.nan21.dnet.module.bd.domain.impl.uom.Uom;
 import net.nan21.dnet.module.md.business.api.mm.IProductService;
 import net.nan21.dnet.module.md.domain.impl.mm.Product;
@@ -192,5 +193,62 @@ public class Product_Service extends AbstractEntityService<Product>
 				.setParameter("clientId",
 						Session.user.get().getClient().getId())
 				.setParameter("categoryId", categoryId).getResultList();
+	}
+	/**
+	 * Find by reference: material
+	 */
+	public List<Product> findByMaterial(LookupItem material) {
+		return this.findByMaterialId(material.getId());
+	}
+	/**
+	 * Find by ID of reference: material.id
+	 */
+	public List<Product> findByMaterialId(String materialId) {
+		return (List<Product>) this
+				.getEntityManager()
+				.createQuery(
+						"select e from Product e where e.clientId = :clientId and e.material.id = :materialId",
+						Product.class)
+				.setParameter("clientId",
+						Session.user.get().getClient().getId())
+				.setParameter("materialId", materialId).getResultList();
+	}
+	/**
+	 * Find by reference: quality
+	 */
+	public List<Product> findByQuality(LookupItem quality) {
+		return this.findByQualityId(quality.getId());
+	}
+	/**
+	 * Find by ID of reference: quality.id
+	 */
+	public List<Product> findByQualityId(String qualityId) {
+		return (List<Product>) this
+				.getEntityManager()
+				.createQuery(
+						"select e from Product e where e.clientId = :clientId and e.quality.id = :qualityId",
+						Product.class)
+				.setParameter("clientId",
+						Session.user.get().getClient().getId())
+				.setParameter("qualityId", qualityId).getResultList();
+	}
+	/**
+	 * Find by reference: surface
+	 */
+	public List<Product> findBySurface(LookupItem surface) {
+		return this.findBySurfaceId(surface.getId());
+	}
+	/**
+	 * Find by ID of reference: surface.id
+	 */
+	public List<Product> findBySurfaceId(String surfaceId) {
+		return (List<Product>) this
+				.getEntityManager()
+				.createQuery(
+						"select e from Product e where e.clientId = :clientId and e.surface.id = :surfaceId",
+						Product.class)
+				.setParameter("clientId",
+						Session.user.get().getClient().getId())
+				.setParameter("surfaceId", surfaceId).getResultList();
 	}
 }

@@ -12,8 +12,14 @@ Ext.define(Dnet.ns.md + "Org_Ui" , {
 	 */
 	_defineDcs_: function() {
 		this._getBuilder_()	
-		.addDc("org", Ext.create(Dnet.ns.md + "Org_Dc" ,{multiEdit:true}))
-		;
+		.addDc("org", Ext.create(Dnet.ns.md + "Org_Dc" ,{multiEdit:true}))	
+		.addDc("address", Ext.create(Dnet.ns.bd + "Location_Dc" ,{}))	
+		.addDc("communic", Ext.create(Dnet.ns.bd + "CommunicationMethod_Dc" ,{multiEdit:true}))
+		.linkDc("address", "org",{fields:[
+			{childField:"targetRefid", parentField:"refid"}]}
+		).linkDc("communic", "org",{fields:[
+			{childField:"targetRefid", parentField:"refid"}, {childField:"targetAlias", parentField:"entityAlias"}, {childField:"targetType", parentField:"type"}]}
+		);
 	},
 
 	/**
@@ -23,7 +29,13 @@ Ext.define(Dnet.ns.md + "Org_Ui" , {
 		this._getBuilder_()
 		.addDcFilterFormView("org", {name:"orgFilter", xtype:"md_Org_Dc$Filter"})
 		.addDcEditGridView("org", {name:"orgList", xtype:"md_Org_Dc$EditList", frame:true})
-		.addPanel({name:"main", layout:"border", defaults:{split:true}});
+		.addDcGridView("address", {name:"addressList", xtype:"bd_Location_Dc$ListCtx"})
+		.addDcFormView("address", {name:"addressEdit", xtype:"bd_Location_Dc$EditCtx"})
+		.addDcEditGridView("communic", {name:"communicEditList", _hasTitle_:true, xtype:"bd_CommunicationMethod_Dc$EditList", frame:true})
+		.addPanel({name:"main", layout:"border", defaults:{split:true}})
+		.addPanel({name:"detailsTab", height:250, xtype:"tabpanel", activeTab:0, plain:false, deferredRender:false})
+		.addPanel({name:"addressPanel", _hasTitle_:true, layout:"card", activeItem:0})
+		.addPanel({name:"addressEditWrapper", layout:"fit"});
 	},
 	
 	/**
@@ -31,8 +43,14 @@ Ext.define(Dnet.ns.md + "Org_Ui" , {
 	 */
 	_linkElements_: function() {
 		this._getBuilder_()
-		.addChildrenTo("main", ["orgFilter", "orgList"], ["north", "center"])
-		.addToolbarTo("main", "tlbOrgList");
+		.addChildrenTo("main", ["orgFilter", "orgList", "detailsTab"], ["north", "center", "south"])
+		.addChildrenTo("detailsTab", ["addressPanel", "communicEditList"])
+		.addChildrenTo("addressPanel", ["addressList", "addressEditWrapper"])
+		.addChildrenTo("addressEditWrapper", ["addressEdit"])
+		.addToolbarTo("main", "tlbOrgList")
+		.addToolbarTo("addressList", "tlbAddressList")
+		.addToolbarTo("addressEditWrapper", "tlbAddressEdit")
+		.addToolbarTo("communicEditList", "tlbCommunicEditList");
 	},
 	
 	/**
@@ -43,6 +61,26 @@ Ext.define(Dnet.ns.md + "Org_Ui" , {
 		.beginToolbar("tlbOrgList", {dc: "org"})
 			.addTitle().addSeparator().addSeparator()
 			.addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
+			.addReports()
+		.end()
+		.beginToolbar("tlbAddressList", {dc: "address"})
+			.addTitle().addSeparator().addSeparator()
+			.addQuery().addEdit({inContainer:"addressPanel",showView:"addressEditWrapper"}
+			).addNew().addCopy().addDeleteSelected()
+			.addSeparator().addAutoLoad()
+			.addReports()
+		.end()
+		.beginToolbar("tlbAddressEdit", {dc: "address"})
+			.addTitle().addSeparator().addSeparator()
+			.addBack({inContainer:"addressPanel",showView:"addressList"}
+			).addSave().addNew().addCopy().addCancel().addPrevRec().addNextRec()
+			.addSeparator().addAutoLoad()
+			.addReports()
+		.end()
+		.beginToolbar("tlbCommunicEditList", {dc: "communic"})
+			.addTitle().addSeparator().addSeparator()
+			.addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
+			.addSeparator().addAutoLoad()
 			.addReports()
 		.end();
 	}

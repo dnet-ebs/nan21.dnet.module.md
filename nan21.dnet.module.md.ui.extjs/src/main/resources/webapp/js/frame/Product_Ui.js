@@ -48,8 +48,8 @@ Ext.define(Dnet.ns.md + "Product_Ui" , {
 		.addPanel({name:"attrPanel", _hasTitle_:true, layout:"border", defaults:{split:true}})
 		.addPanel({name:"main", layout:"card", activeItem:0})
 		.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-		.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}, onActivateDoLayoutFor:["prodDetailsTab"]})
-		.addPanel({name:"prodDetailsTab", xtype:"tabpanel", activeTab:0, plain:false, deferredRender:false});
+		.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}, onActivateDoLayoutFor:["detailsTab"]})
+		.addPanel({name:"detailsTab", xtype:"tabpanel", activeTab:0, plain:false, deferredRender:false});
 	},
 	
 	/**
@@ -60,8 +60,8 @@ Ext.define(Dnet.ns.md + "Product_Ui" , {
 		.addChildrenTo("attrPanel", ["attrFilter", "attrEditList"], ["west", "center"])
 		.addChildrenTo("main", ["canvas1", "canvas2"])
 		.addChildrenTo("canvas1", ["prodFilter", "prodList"], ["north", "center"])
-		.addChildrenTo("canvas2", ["prodEdit", "prodDetailsTab"], ["north", "center"])
-		.addChildrenTo("prodDetailsTab", ["prodEditInfo", "attrPanel", "classificEdit", "substEditList", "atchList"])
+		.addChildrenTo("canvas2", ["prodEdit", "detailsTab"], ["north", "center"])
+		.addChildrenTo("detailsTab", ["prodEditInfo", "attrPanel", "classificEdit", "substEditList", "atchList"])
 		.addToolbarTo("canvas1", "tlbProdList")
 		.addToolbarTo("canvas2", "tlbProdEdit")
 		.addToolbarTo("substEditList", "tlbSusbst")

@@ -17,4 +17,25 @@
 		referencedTableName="BD_ATTRSET" 
 		referencedColumnNames="ID"/>
 </changeSet>
+<changeSet author="amathe" id="FK-10">
+	<addForeignKeyConstraint constraintName="FK_MD_PROD_CTG10" 
+		baseTableName="MD_PROD_CTG"
+		baseColumnNames="MATERIAL_ID"
+		referencedTableName="BD_LKP_ITEMT" 
+		referencedColumnNames="ID"/>
+</changeSet>
+<changeSet author="amathe" id="FK-11">
+	<addForeignKeyConstraint constraintName="FK_MD_PROD_CTG11" 
+		baseTableName="MD_PROD_CTG"
+		baseColumnNames="QUALITY_ID"
+		referencedTableName="BD_LKP_ITEMT" 
+		referencedColumnNames="ID"/>
+</changeSet>
+<changeSet author="amathe" id="FK-12">
+	<addForeignKeyConstraint constraintName="FK_MD_PROD_CTG12" 
+		baseTableName="MD_PROD_CTG"
+		baseColumnNames="SURFACE_ID"
+		referencedTableName="BD_LKP_ITEMT" 
+		referencedColumnNames="ID"/>
+</changeSet>
 </databaseChangeLog>

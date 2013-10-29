@@ -52,4 +52,25 @@
 		referencedTableName="MD_PROD_CTG" 
 		referencedColumnNames="ID"/>
 </changeSet>
+<changeSet author="amathe" id="FK-10">
+	<addForeignKeyConstraint constraintName="FK_MD_PROD10" 
+		baseTableName="MD_PROD"
+		baseColumnNames="MATERIAL_ID"
+		referencedTableName="BD_LKP_ITEMT" 
+		referencedColumnNames="ID"/>
+</changeSet>
+<changeSet author="amathe" id="FK-11">
+	<addForeignKeyConstraint constraintName="FK_MD_PROD11" 
+		baseTableName="MD_PROD"
+		baseColumnNames="QUALITY_ID"
+		referencedTableName="BD_LKP_ITEMT" 
+		referencedColumnNames="ID"/>
+</changeSet>
+<changeSet author="amathe" id="FK-12">
+	<addForeignKeyConstraint constraintName="FK_MD_PROD12" 
+		baseTableName="MD_PROD"
+		baseColumnNames="SURFACE_ID"
+		referencedTableName="BD_LKP_ITEMT" 
+		referencedColumnNames="ID"/>
+</changeSet>
 </databaseChangeLog>

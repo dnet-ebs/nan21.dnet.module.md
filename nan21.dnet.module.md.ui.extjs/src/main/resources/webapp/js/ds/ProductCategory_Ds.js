@@ -12,7 +12,8 @@ Ext.define(Dnet.ns.md + "ProductCategory_Ds", {
 	],
 	
 	fields: [
-		{name:"folder", type:"boolean"},
+		{name:"acceptProd", type:"boolean"},
+		{name:"acceptCateg", type:"boolean"},
 		{name:"iconUrl", type:"string"},
 		{name:"iconLocation", type:"string"},
 		{name:"categoryId", type:"string"},
@@ -21,6 +22,12 @@ Ext.define(Dnet.ns.md + "ProductCategory_Ds", {
 		{name:"attributeSetId", type:"string"},
 		{name:"attributeSet", type:"string"},
 		{name:"attributeSetName", type:"string"},
+		{name:"materialId", type:"string"},
+		{name:"material", type:"string"},
+		{name:"qualityId", type:"string"},
+		{name:"quality", type:"string"},
+		{name:"surfaceId", type:"string"},
+		{name:"surface", type:"string"},
 		{name:"id", type:"string"},
 		{name:"code", type:"string"},
 		{name:"name", type:"string"},

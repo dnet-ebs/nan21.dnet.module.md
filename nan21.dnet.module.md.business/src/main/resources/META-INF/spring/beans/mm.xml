@@ -10,6 +10,9 @@
 	<bean id="ProductCategory" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.md.business.ext.mm.service.ProductCategory_Service"/>				
 
+	<bean id="ProductCategorySubstitute" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.business.impl.mm.ProductCategorySubstitute_Service"/>				
+
 	<bean id="Product" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.md.business.impl.mm.Product_Service"/>				
 

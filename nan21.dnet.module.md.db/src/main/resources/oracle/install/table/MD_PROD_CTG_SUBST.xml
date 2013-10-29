@@ -5,20 +5,11 @@
 		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
 
 	<changeSet author="amathe" id="TBL">
-		<createTable tableName="MD_PROD_CTG">
-			<column name="ACCEPTCATEG" type="number(1)">
-				<constraints nullable="false"/>
-			</column>
-			<column name="ACCEPTPROD" type="number(1)">
-				<constraints nullable="false"/>
-			</column>
+		<createTable tableName="MD_PROD_CTG_SUBST">
 			<column name="ACTIVE" type="number(1)">
 				<constraints nullable="false"/>
 			</column>
 			<column name="CLIENTID" type="varchar2(64)">
-				<constraints nullable="false"/>
-			</column>
-			<column name="CODE" type="varchar2(64)">
 				<constraints nullable="false"/>
 			</column>
 			<column name="CREATEDAT" type="DATE">
@@ -27,8 +18,6 @@
 			<column name="CREATEDBY" type="varchar2(32)">
 				<constraints nullable="false"/>
 			</column>
-			<column name="DESCRIPTION" type="varchar2(400)"/>
-			<column name="ICONURL" type="varchar2(255)"/>
 			<column name="ID" type="varchar2(64)">
 				<constraints nullable="false"/>
 			</column>
@@ -38,41 +27,32 @@
 			<column name="MODIFIEDBY" type="varchar2(32)">
 				<constraints nullable="false"/>
 			</column>
-			<column name="NAME" type="varchar2(255)">
-				<constraints nullable="false"/>
-			</column>
 			<column name="NOTES" type="varchar2(4000)"/>
 			<column name="REFID" type="varchar2(64)">
 				<constraints nullable="false"/>
 			</column>
 			<column name="VERSION" type="number(10)"/>
-			<column name="ATTRIBUTESET_ID" type="varchar2(64)"/>
-			<column name="CATEGORY_ID" type="varchar2(64)"/>
-			<column name="MATERIAL_ID" type="varchar2(64)"/>
-			<column name="QUALITY_ID" type="varchar2(64)"/>
-			<column name="SURFACE_ID" type="varchar2(64)"/>
+			<column name="CATEGORY_ID" type="varchar2(64)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="SUBSTITUTE_ID" type="varchar2(64)">
+				<constraints nullable="false"/>
+			</column>
 		</createTable>
 	</changeSet>
 
 	<changeSet author="amathe" id="PK">
 		<addPrimaryKey 
-			constraintName="PK_MD_PROD_CTG"
-			tableName="MD_PROD_CTG"
+			constraintName="PK_MD_PROD_CTG_SUBST"
+			tableName="MD_PROD_CTG_SUBST"
 			columnNames="ID"/>
 	</changeSet>
 	
 	<changeSet author="amathe" id="UK-1">
 		<addUniqueConstraint
-			constraintName="UK_MD_PROD_CTG1"
-			tableName="MD_PROD_CTG"
-			columnNames="CLIENTID,CODE"/>
-	</changeSet>
-	
-	<changeSet author="amathe" id="UK-2">
-		<addUniqueConstraint
-			constraintName="UK_MD_PROD_CTG2"
-			tableName="MD_PROD_CTG"
-			columnNames="CLIENTID,NAME"/>
+			constraintName="UK_MD_PROD_CTG_SUBST1"
+			tableName="MD_PROD_CTG_SUBST"
+			columnNames="CLIENTID,CATEGORY_ID,SUBSTITUTE_ID"/>
 	</changeSet>
 
 </databaseChangeLog>

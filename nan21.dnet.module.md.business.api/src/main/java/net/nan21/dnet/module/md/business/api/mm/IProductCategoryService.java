@@ -8,6 +8,7 @@ package net.nan21.dnet.module.md.business.api.mm;
 import java.util.List;
 import net.nan21.dnet.core.api.service.business.IEntityService;
 import net.nan21.dnet.module.bd.domain.impl.attr.AttributeSet;
+import net.nan21.dnet.module.bd.domain.impl.other.LookupItem;
 import net.nan21.dnet.module.md.domain.impl.mm.ProductCategory;
 
 /**
@@ -47,4 +48,34 @@ public interface IProductCategoryService
 	 * Find by ID of reference: attributeSet.id
 	 */
 	public List<ProductCategory> findByAttributeSetId(String attributeSetId);
+
+	/**
+	 * Find by reference: material
+	 */
+	public List<ProductCategory> findByMaterial(LookupItem material);
+
+	/**
+	 * Find by ID of reference: material.id
+	 */
+	public List<ProductCategory> findByMaterialId(String materialId);
+
+	/**
+	 * Find by reference: quality
+	 */
+	public List<ProductCategory> findByQuality(LookupItem quality);
+
+	/**
+	 * Find by ID of reference: quality.id
+	 */
+	public List<ProductCategory> findByQualityId(String qualityId);
+
+	/**
+	 * Find by reference: surface
+	 */
+	public List<ProductCategory> findBySurface(LookupItem surface);
+
+	/**
+	 * Find by ID of reference: surface.id
+	 */
+	public List<ProductCategory> findBySurfaceId(String surfaceId);
 }

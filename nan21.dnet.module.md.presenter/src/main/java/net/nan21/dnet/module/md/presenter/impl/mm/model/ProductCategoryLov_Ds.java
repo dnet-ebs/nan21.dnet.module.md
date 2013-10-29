@@ -16,10 +16,10 @@ public class ProductCategoryLov_Ds
 		extends
 			AbstractTypeWithCodeLov<ProductCategory> {
 
-	public static final String f_folder = "folder";
+	public static final String f_acceptProd = "acceptProd";
 
 	@DsField
-	private Boolean folder;
+	private Boolean acceptProd;
 
 	public ProductCategoryLov_Ds() {
 		super();
@@ -29,11 +29,11 @@ public class ProductCategoryLov_Ds
 		super(e);
 	}
 
-	public Boolean getFolder() {
-		return this.folder;
+	public Boolean getAcceptProd() {
+		return this.acceptProd;
 	}
 
-	public void setFolder(Boolean folder) {
-		this.folder = folder;
+	public void setAcceptProd(Boolean acceptProd) {
+		this.acceptProd = acceptProd;
 	}
 }
