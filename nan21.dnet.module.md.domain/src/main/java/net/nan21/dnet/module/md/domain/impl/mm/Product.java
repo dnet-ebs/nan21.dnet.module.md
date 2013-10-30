@@ -20,7 +20,7 @@ import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import net.nan21.dnet.core.domain.impl.AbstractTypeWithCode;
 import net.nan21.dnet.module.bd.domain.impl.attr.AttributeSet;
-import net.nan21.dnet.module.bd.domain.impl.other.LookupItem;
+import net.nan21.dnet.module.bd.domain.impl.attr.LookupItem;
 import net.nan21.dnet.module.bd.domain.impl.uom.Uom;
 import net.nan21.dnet.module.md.domain.impl.mm.ProductCategory;
 import net.nan21.dnet.module.md.domain.impl.mm.ProductManufacturer;

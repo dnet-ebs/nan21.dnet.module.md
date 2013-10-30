@@ -13,7 +13,7 @@ import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.AbstractTypeWithCodeDs;
 import net.nan21.dnet.module.bd.domain.impl.attr.AttributeSet;
-import net.nan21.dnet.module.bd.domain.impl.other.LookupItem;
+import net.nan21.dnet.module.bd.domain.impl.attr.LookupItem;
 import net.nan21.dnet.module.md.domain.impl.mm.ProductCategory;
 
 @Ds(entity = ProductCategory.class, sort = {@SortField(field = ProductCategory_Ds.f_code)})

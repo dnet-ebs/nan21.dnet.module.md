@@ -8,7 +8,7 @@ package net.nan21.dnet.module.md.business.api.mm;
 import java.util.List;
 import net.nan21.dnet.core.api.service.business.IEntityService;
 import net.nan21.dnet.module.bd.domain.impl.attr.AttributeSet;
-import net.nan21.dnet.module.bd.domain.impl.other.LookupItem;
+import net.nan21.dnet.module.bd.domain.impl.attr.LookupItem;
 import net.nan21.dnet.module.md.domain.impl.mm.ProductCategory;
 
 /**
