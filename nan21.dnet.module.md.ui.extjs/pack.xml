@@ -1,4 +1,4 @@
-<project name="nan21.dnet.modules.ad.ui.extjs.min" default="run" basedir=".">
+<project name="nan21.dnet.modules.md.ui.extjs.min" default="run" basedir=".">
 	<description>
 		Minimize the javascript files
     </description>
