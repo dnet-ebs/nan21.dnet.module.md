@@ -56,6 +56,7 @@ Ext.define(Dnet.ns.md + "ProductSubstitute_Dc$CtxEditList" , {
 	 */
 	_defineColumns_: function() {
 		this._getBuilder_()	
+		.addTextColumn({name:"substituteId", dataIndex:"substituteId", hidden:true, width:100, noEdit: true})
 		.addLov({name:"substitute", dataIndex:"substitute", xtype:"gridcolumn", width:200, 
 			editor:{xtype:"md_Products_Lov", selectOnFocus:true, caseRestriction:"uppercase",
 				retFieldMapping: [{lovField:"id", dsField: "substituteId"} ,{lovField:"name", dsField: "substituteName"} ]}})
@@ -77,12 +78,18 @@ Ext.define(Dnet.ns.md + "ProductSubstitute_Dc$EditList" , {
 	 */
 	_defineColumns_: function() {
 		this._getBuilder_()	
+		.addTextColumn({name:"productId", dataIndex:"productId", hidden:true, width:100, noEdit: true})
 		.addLov({name:"product", dataIndex:"product", xtype:"gridcolumn", width:120, 
 			editor:{xtype:"md_Products_Lov", selectOnFocus:true, caseRestriction:"uppercase",
 				retFieldMapping: [{lovField:"id", dsField: "productId"} ]}})
+		.addTextColumn({name:"productName", dataIndex:"productName", width:200, noEdit: true})
+		.addTextColumn({name:"substituteId", dataIndex:"substituteId", hidden:true, width:100, noEdit: true})
 		.addLov({name:"substitute", dataIndex:"substitute", xtype:"gridcolumn", width:120, 
 			editor:{xtype:"md_Products_Lov", selectOnFocus:true, caseRestriction:"uppercase",
 				retFieldMapping: [{lovField:"id", dsField: "substituteId"} ,{lovField:"name", dsField: "substituteName"} ]}})
+		.addTextColumn({name:"substituteName", dataIndex:"substituteName", width:200, noEdit: true})
+		.addTextColumn({name:"notes", dataIndex:"notes", width:200})
+		.addBooleanColumn({name:"active", dataIndex:"active"})
 		.addDefaults();
 	}
 });

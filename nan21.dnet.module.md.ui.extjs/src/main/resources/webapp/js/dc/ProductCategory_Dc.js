@@ -192,3 +192,49 @@ Ext.define(Dnet.ns.md + "ProductCategory_Dc$ViewIcon" , {
 		.addChildrenTo("main", ["iconLocation"]);
 	}
 });
+
+/* ================= EDIT-GRID: EditList ================= */
+
+Ext.define(Dnet.ns.md + "ProductCategory_Dc$EditList" , {
+	extend: "dnet.core.dc.view.AbstractDcvEditableGrid",
+	alias: "widget.md_ProductCategory_Dc$EditList",
+	_bulkEditFields_: ["acceptCateg","acceptProd","active","attributeSet","category","material","quality","surface"],
+
+	/**
+	 * Columns definition
+	 */
+	_defineColumns_: function() {
+		this._getBuilder_()	
+		.addTextColumn({name:"code", dataIndex:"code", width:120, caseRestriction:"uppercase"})
+		.addTextColumn({name:"name", dataIndex:"name", width:200})
+		.addTextColumn({name:"description", dataIndex:"description", hidden:true, width:200})
+		.addBooleanColumn({name:"acceptProd", dataIndex:"acceptProd"})
+		.addBooleanColumn({name:"acceptCateg", dataIndex:"acceptCateg"})
+		.addBooleanColumn({name:"active", dataIndex:"active"})
+		.addTextColumn({name:"categoryId", dataIndex:"categoryId", hidden:true, width:100})
+		.addLov({name:"category", dataIndex:"category", xtype:"gridcolumn", width:120, 
+			editor:{xtype:"md_ProductCategories_Lov", selectOnFocus:true, caseRestriction:"uppercase",
+				retFieldMapping: [{lovField:"id", dsField: "categoryId"} ,{lovField:"name", dsField: "categoryName"} ]}})
+		.addTextColumn({name:"categoryName", dataIndex:"categoryName", hidden:true, width:200})
+		.addTextColumn({name:"attributeSetId", dataIndex:"attributeSetId", hidden:true, width:100})
+		.addLov({name:"attributeSet", dataIndex:"attributeSet", xtype:"gridcolumn", width:120, 
+			editor:{xtype:"bd_AttributeSets_Lov", selectOnFocus:true, caseRestriction:"uppercase",
+				retFieldMapping: [{lovField:"id", dsField: "attributeSetId"} ,{lovField:"name", dsField: "attributeSetName"} ],
+				filterFieldMapping: [{lovField:"active", value: "true"} ]}})
+		.addTextColumn({name:"attributeSetName", dataIndex:"attributeSetName", hidden:true, width:200})
+		.addLov({name:"material", dataIndex:"material", xtype:"gridcolumn", width:120, 
+			editor:{xtype:"bd_LookupItems_Lov", selectOnFocus:true, caseRestriction:"uppercase",
+				retFieldMapping: [{lovField:"id", dsField: "materialId"} ],
+				filterFieldMapping: [{lovField:"active", value: "true"}, {lovField:"type", value: "Product.material"} ]}})
+		.addLov({name:"quality", dataIndex:"quality", xtype:"gridcolumn", width:120, 
+			editor:{xtype:"bd_LookupItems_Lov", selectOnFocus:true, caseRestriction:"uppercase",
+				retFieldMapping: [{lovField:"id", dsField: "qualityId"} ],
+				filterFieldMapping: [{lovField:"active", value: "true"}, {lovField:"type", value: "Product.quality"} ]}})
+		.addLov({name:"surface", dataIndex:"surface", xtype:"gridcolumn", width:120, 
+			editor:{xtype:"bd_LookupItems_Lov", selectOnFocus:true, caseRestriction:"uppercase",
+				retFieldMapping: [{lovField:"id", dsField: "surfaceId"} ],
+				filterFieldMapping: [{lovField:"active", value: "true"}, {lovField:"type", value: "Product.surface"} ]}})
+		.addTextColumn({name:"iconUrl", dataIndex:"iconUrl", width:100})
+		.addDefaults();
+	}
+});
