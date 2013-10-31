@@ -29,9 +29,15 @@ import net.nan21.dnet.module.md.domain.impl.mm.ProductManufacturer;
 		@RefLookup(refId = Product_Ds.f_weightUomId, namedQuery = Uom.NQ_FIND_BY_CODE, params = {@Param(name = "code", field = Product_Ds.f_weightUom)}),
 		@RefLookup(refId = Product_Ds.f_attributeSetId, namedQuery = AttributeSet.NQ_FIND_BY_CODE, params = {@Param(name = "code", field = Product_Ds.f_attributeSet)}),
 		@RefLookup(refId = Product_Ds.f_categoryId, namedQuery = ProductCategory.NQ_FIND_BY_CODE, params = {@Param(name = "code", field = Product_Ds.f_category)}),
-		@RefLookup(refId = Product_Ds.f_materialId, namedQuery = LookupItem.NQ_FIND_BY_CODE, params = {@Param(name = "type", field = Product_Ds.f_material)}),
-		@RefLookup(refId = Product_Ds.f_qualityId, namedQuery = LookupItem.NQ_FIND_BY_CODE, params = {@Param(name = "type", field = Product_Ds.f_quality)}),
-		@RefLookup(refId = Product_Ds.f_surfaceId, namedQuery = LookupItem.NQ_FIND_BY_CODE, params = {@Param(name = "type", field = Product_Ds.f_surface)})})
+		@RefLookup(refId = Product_Ds.f_materialId, namedQuery = LookupItem.NQ_FIND_BY_CODE, params = {
+				@Param(name = "type", value = "Product.material"),
+				@Param(name = "code", field = Product_Ds.f_material)}),
+		@RefLookup(refId = Product_Ds.f_qualityId, namedQuery = LookupItem.NQ_FIND_BY_CODE, params = {
+				@Param(name = "type", value = "Product.quality"),
+				@Param(name = "code", field = Product_Ds.f_quality)}),
+		@RefLookup(refId = Product_Ds.f_surfaceId, namedQuery = LookupItem.NQ_FIND_BY_CODE, params = {
+				@Param(name = "type", value = "Product.surface"),
+				@Param(name = "code", field = Product_Ds.f_surface)})})
 public class Product_Ds extends AbstractTypeWithCodeDs<Product> {
 
 	public static final String f_iconUrl = "iconUrl";

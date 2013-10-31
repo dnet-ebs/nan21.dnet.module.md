@@ -24,7 +24,7 @@ Ext.define(Dnet.ns.md + "ProductCategory_Dc$Filter" , {
 		.addLov({name:"code", dataIndex:"code", xtype:"md_ProductCategories_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "id"} ]})
 		.addLov({name:"category", dataIndex:"category", xtype:"md_ProductCategories_Lov", caseRestriction:"uppercase",
-			retFieldMapping: [{lovField:"id", dsField: "id"} ]})
+			retFieldMapping: [{lovField:"id", dsField: "categoryId"} ]})
 		.addLov({name:"attributeSet", dataIndex:"attributeSet", xtype:"bd_AttributeSets_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "attributeSetId"} ]})
 		.addLov({name:"material", dataIndex:"material", xtype:"bd_LookupItems_Lov", caseRestriction:"uppercase",

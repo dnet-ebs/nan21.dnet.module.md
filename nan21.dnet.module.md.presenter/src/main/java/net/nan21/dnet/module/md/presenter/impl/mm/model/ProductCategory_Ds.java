@@ -20,9 +20,15 @@ import net.nan21.dnet.module.md.domain.impl.mm.ProductCategory;
 @RefLookups({
 		@RefLookup(refId = ProductCategory_Ds.f_categoryId, namedQuery = ProductCategory.NQ_FIND_BY_CODE, params = {@Param(name = "code", field = ProductCategory_Ds.f_category)}),
 		@RefLookup(refId = ProductCategory_Ds.f_attributeSetId, namedQuery = AttributeSet.NQ_FIND_BY_CODE, params = {@Param(name = "code", field = ProductCategory_Ds.f_attributeSet)}),
-		@RefLookup(refId = ProductCategory_Ds.f_materialId, namedQuery = LookupItem.NQ_FIND_BY_CODE, params = {@Param(name = "type", field = ProductCategory_Ds.f_material)}),
-		@RefLookup(refId = ProductCategory_Ds.f_qualityId, namedQuery = LookupItem.NQ_FIND_BY_CODE, params = {@Param(name = "type", field = ProductCategory_Ds.f_quality)}),
-		@RefLookup(refId = ProductCategory_Ds.f_surfaceId, namedQuery = LookupItem.NQ_FIND_BY_CODE, params = {@Param(name = "type", field = ProductCategory_Ds.f_surface)})})
+		@RefLookup(refId = ProductCategory_Ds.f_materialId, namedQuery = LookupItem.NQ_FIND_BY_CODE, params = {
+				@Param(name = "type", value = "Product.material"),
+				@Param(name = "code", field = ProductCategory_Ds.f_material)}),
+		@RefLookup(refId = ProductCategory_Ds.f_qualityId, namedQuery = LookupItem.NQ_FIND_BY_CODE, params = {
+				@Param(name = "type", value = "Product.quality"),
+				@Param(name = "code", field = ProductCategory_Ds.f_quality)}),
+		@RefLookup(refId = ProductCategory_Ds.f_surfaceId, namedQuery = LookupItem.NQ_FIND_BY_CODE, params = {
+				@Param(name = "type", value = "Product.surface"),
+				@Param(name = "code", field = ProductCategory_Ds.f_surface)})})
 public class ProductCategory_Ds extends AbstractTypeWithCodeDs<ProductCategory> {
 
 	public static final String f_acceptProd = "acceptProd";
