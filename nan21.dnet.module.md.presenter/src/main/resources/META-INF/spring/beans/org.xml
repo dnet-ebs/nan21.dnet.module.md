@@ -91,6 +91,7 @@
 	<bean id="DocSequence_Ds" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.org.model.DocSequence_Ds"/>
+		<property name="filterClass" value="net.nan21.dnet.module.md.presenter.impl.org.model.DocSequence_DsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.org.DocSequence"/>
 		<property name="rpcData" >
 			<map>
@@ -171,5 +172,30 @@
 		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.org.model.InventoryLocationLov_Ds"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.org.InventoryLocation"/>
 		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== FinancialAccount ==================== -->
+		
+	<bean id="FinancialAccount_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.org.model.FinancialAccount_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.org.FinancialAccount"/>
+	</bean>
+	
+	<!-- ==================== FinancialAccountLov ==================== -->
+		
+	<bean id="FinancialAccountLov_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.org.model.FinancialAccountLov_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.org.FinancialAccount"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== FinancialAccountUsage ==================== -->
+		
+	<bean id="FinancialAccountUsage_Ds" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.presenter.impl.org.model.FinancialAccountUsage_Ds"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.domain.impl.org.FinancialAccountUsage"/>
 	</bean>
 </beans>

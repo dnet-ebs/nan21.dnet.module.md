@@ -16,6 +16,8 @@ Ext.define(Dnet.ns.md + "DocSequence_Ds", {
 	],
 	
 	initRecord: function() {
+		this.set("companyId", getApplication().getSession().company.id);
+		this.set("company", getApplication().getSession().company.code);
 		this.set("firstNo", 1);
 		this.set("lastNo", 999);
 		this.set("incrementBy", 1);
@@ -48,4 +50,12 @@ Ext.define(Dnet.ns.md + "DocSequence_Ds", {
 		{name:"entityAlias", type:"string"},
 		{name:"entityFqn", type:"string"}
 	]
+});
+
+Dnet.createFilterModelFromRecordModel({
+	initFilter: function() {
+		this.set("companyId", getApplication().getSession().company.id);
+		this.set("company", getApplication().getSession().company.code);
+	},
+	recordModelFqn: Dnet.ns.md + "DocSequence_Ds"
 });

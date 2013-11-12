@@ -25,13 +25,13 @@ Ext.define(Dnet.ns.md + "DocType_Dc$Filter" , {
 			retFieldMapping: [{lovField:"id", dsField: "id"} ]})
 		.addTextField({ name:"name", dataIndex:"name"})
 		.addBooleanField({ name:"active", dataIndex:"active"})
-		.addCombo({ xtype:"combo", name:"category", dataIndex:"category", store:[ "sales-order", "sales-invoice", "sales-inventory-in", "sales-inventory-out", "purchase-order", "purchase-invoice", "purchase-inventory-in", "purchase-inventory-out", "inventory-transfer", "payment-in", "payment-out"]})
+		.addCombo({ xtype:"combo", name:"category", dataIndex:"category", store:[ "sales-order", "sales-invoice", "sales-inventory-in", "sales-inventory-out", "purchase-order", "purchase-invoice", "purchase-inventory-in", "purchase-inventory-out", "inventory-transfer", "payment"]})
 		
 		/* =========== containers =========== */
 		.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 		autoScroll:true, padding:"0 30 5 0"})
 		.addPanel({ name:"col1", width:250, layout:"form"})
-		.addPanel({ name:"col2", width:210, layout:"form"});
+		.addPanel({ name:"col2", width:250, layout:"form"});
 	},
 
 	/**
@@ -59,7 +59,7 @@ Ext.define(Dnet.ns.md + "DocType_Dc$EditList" , {
 		.addTextColumn({name:"code", dataIndex:"code", width:150, caseRestriction:"uppercase"})
 		.addTextColumn({name:"name", dataIndex:"name", width:200})
 		.addComboColumn({name:"category", dataIndex:"category", width:150, 
-			editor:{xtype:"combo", mode: 'local', selectOnFocus:true, triggerAction:'all', forceSelection:true, store:[ "sales-order", "sales-invoice", "sales-inventory-in", "sales-inventory-out", "purchase-order", "purchase-invoice", "purchase-inventory-in", "purchase-inventory-out", "inventory-transfer", "payment-in", "payment-out"]}})
+			editor:{xtype:"combo", mode: 'local', selectOnFocus:true, triggerAction:'all', forceSelection:true, store:[ "sales-order", "sales-invoice", "sales-inventory-in", "sales-inventory-out", "purchase-order", "purchase-invoice", "purchase-inventory-in", "purchase-inventory-out", "inventory-transfer", "payment"]}})
 		.addBooleanColumn({name:"active", dataIndex:"active"})
 		.addTextColumn({name:"description", dataIndex:"description", width:200})
 		.addDefaults();

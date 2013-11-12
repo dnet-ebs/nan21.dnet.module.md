@@ -33,4 +33,10 @@
 
 	<bean id="InventoryLocation" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.md.business.impl.org.InventoryLocation_Service"/>				
+
+	<bean id="FinancialAccount" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.business.impl.org.FinancialAccount_Service"/>				
+
+	<bean id="FinancialAccountUsage" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.business.impl.org.FinancialAccountUsage_Service"/>				
 </beans>

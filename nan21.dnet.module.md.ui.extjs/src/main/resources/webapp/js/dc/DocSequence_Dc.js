@@ -5,6 +5,7 @@
  */
 Ext.define(Dnet.ns.md + "DocSequence_Dc" , {
 	extend: "dnet.core.dc.AbstractDc",
+	filterModel: Dnet.ns.md + "DocSequence_DsFilter",
 	recordModel: Dnet.ns.md + "DocSequence_Ds"
 });
 
@@ -23,7 +24,7 @@ Ext.define(Dnet.ns.md + "DocSequence_Dc$Filter" , {
 		/* =========== controls =========== */
 		.addLov({name:"docType", dataIndex:"docType", xtype:"md_DocTypes_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "docTypeId"} ]})
-		.addLov({name:"company", dataIndex:"company", xtype:"md_OrgsLegalEntity_Lov", caseRestriction:"uppercase",
+		.addLov({name:"company", dataIndex:"company", allowBlank:false, xtype:"md_OrgsLegalEntity_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "companyId"} ]})
 		.addBooleanField({ name:"active", dataIndex:"active"})
 		.addTextField({ name:"prefix", dataIndex:"prefix", maxLength:4})

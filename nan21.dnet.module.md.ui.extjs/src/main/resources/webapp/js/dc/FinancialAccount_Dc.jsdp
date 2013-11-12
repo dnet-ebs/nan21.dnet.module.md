@@ -1,0 +1,6 @@
+[
+	"nan21.dnet.module.md.ui.extjs/ds/FinancialAccount_Ds", 
+	"nan21.dnet.module.md.ui.extjs/lov/Inventories_Lov", 
+	"nan21.dnet.module.md.ui.extjs/lov/OrgsLegalEntity_Lov", 
+	"nan21.dnet.module.md.ui.extjs/lov/BankAccounts_Lov"
+]
