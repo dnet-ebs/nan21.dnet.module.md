@@ -8,8 +8,17 @@ Ext.define(Dnet.ns.md + "FinancialAccount_Ds", {
 	extend: 'Ext.data.Model',
 	
 	validations: [
-			{field: "name", type: 'presence'}
+		{field: "company", type: 'presence'},
+		{field: "code", type: 'presence'},
+		{field: "name", type: 'presence'},
+		{field: "currency", type: 'presence'},
+		{field: "type", type: 'presence'}
 	],
+	
+	initRecord: function() {
+		this.set("company", getApplication().getSession().company.code);
+		this.set("active", true);
+	},
 	
 	fields: [
 		{name:"type", type:"string"},

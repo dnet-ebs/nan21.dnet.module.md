@@ -25,6 +25,8 @@ Ext.define(Dnet.ns.md + "FinancialAccount_Dc$Filter" , {
 			retFieldMapping: [{lovField:"id", dsField: "id"} ]})
 		.addLov({name:"company", dataIndex:"company", xtype:"md_OrgsLegalEntity_Lov", caseRestriction:"uppercase",
 			retFieldMapping: [{lovField:"id", dsField: "companyId"} ]})
+		.addLov({name:"currency", dataIndex:"currency", xtype:"bd_Currencies_Lov", caseRestriction:"uppercase",
+			retFieldMapping: [{lovField:"id", dsField: "currencyId"} ]})
 		.addTextField({ name:"name", dataIndex:"name"})
 		.addBooleanField({ name:"active", dataIndex:"active"})
 		
@@ -43,7 +45,7 @@ Ext.define(Dnet.ns.md + "FinancialAccount_Dc$Filter" , {
 		this._getBuilder_()
 		.addChildrenTo("main", ["col1", "col2", "col3"])
 		.addChildrenTo("col1", ["code", "name"])
-		.addChildrenTo("col2", ["company"])
+		.addChildrenTo("col2", ["company", "currency"])
 		.addChildrenTo("col3", ["active"]);
 	}
 });
@@ -62,8 +64,13 @@ Ext.define(Dnet.ns.md + "FinancialAccount_Dc$EditList" , {
 		.addLov({name:"company", dataIndex:"company", xtype:"gridcolumn", width:120, 
 			editor:{xtype:"md_OrgsLegalEntity_Lov", selectOnFocus:true, caseRestriction:"uppercase",
 				retFieldMapping: [{lovField:"id", dsField: "companyId"} ]}})
+		.addTextColumn({name:"companyId", dataIndex:"companyId", hidden:true, width:100, noEdit: true})
 		.addTextColumn({name:"code", dataIndex:"code", width:120, caseRestriction:"uppercase"})
 		.addTextColumn({name:"name", dataIndex:"name", width:200})
+		.addLov({name:"currency", dataIndex:"currency", xtype:"gridcolumn", width:120, 
+			editor:{xtype:"bd_Currencies_Lov", selectOnFocus:true, caseRestriction:"uppercase",
+				retFieldMapping: [{lovField:"id", dsField: "currencyId"} ]}})
+		.addTextColumn({name:"currencyId", dataIndex:"currencyId", hidden:true, width:100, noEdit: true})
 		.addComboColumn({name:"type", dataIndex:"type", width:60, 
 			editor:{xtype:"combo", mode: 'local', selectOnFocus:true, triggerAction:'all', forceSelection:true, store:[ "bank", "cash"]}})
 		.addLov({name:"bankAccount", dataIndex:"bankAccount", xtype:"gridcolumn", width:200, 
