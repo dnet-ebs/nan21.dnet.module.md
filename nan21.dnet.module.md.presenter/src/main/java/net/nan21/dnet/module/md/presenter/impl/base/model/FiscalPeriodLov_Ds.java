@@ -12,7 +12,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.AbstractTypeLov;
 import net.nan21.dnet.module.md.domain.impl.base.FiscalPeriod;
 
-@Ds(entity = FiscalPeriod.class, sort = {@SortField(field = FiscalPeriodLov_Ds.f_name)})
+@Ds(entity = FiscalPeriod.class, sort = {@SortField(field = FiscalPeriodLov_Ds.f_startDate, desc = true)})
 public class FiscalPeriodLov_Ds extends AbstractTypeLov<FiscalPeriod> {
 
 	public static final String f_startDate = "startDate";
